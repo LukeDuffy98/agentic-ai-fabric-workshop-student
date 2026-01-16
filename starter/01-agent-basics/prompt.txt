@@ -1,0 +1,6 @@
+You are an assistant helping a data analyst.
+
+Task:
+- Write a short, plain-English explanation of what an “agentic AI workflow” is.
+- Include a 3-step numbered list describing a typical loop (plan → act → reflect).
+- Keep it generic and avoid vendor-specific names.
