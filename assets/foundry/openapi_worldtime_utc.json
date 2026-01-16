@@ -1,0 +1,52 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "World Time (UTC)",
+    "version": "1.0.0",
+    "description": "Get the current UTC time for logging and validation in a training lab."
+  },
+  "servers": [
+    {
+      "url": "https://worldtimeapi.org"
+    }
+  ],
+  "paths": {
+    "/api/timezone/Etc/UTC": {
+      "get": {
+        "operationId": "getUtcTime",
+        "summary": "Get current UTC time",
+        "description": "Returns the current UTC time and related metadata.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "abbreviation": { "type": "string" },
+                    "client_ip": { "type": "string" },
+                    "datetime": { "type": "string" },
+                    "day_of_week": { "type": "integer" },
+                    "day_of_year": { "type": "integer" },
+                    "dst": { "type": "boolean" },
+                    "dst_from": { "type": ["string", "null"] },
+                    "dst_offset": { "type": "integer" },
+                    "dst_until": { "type": ["string", "null"] },
+                    "raw_offset": { "type": "integer" },
+                    "timezone": { "type": "string" },
+                    "unixtime": { "type": "integer" },
+                    "utc_datetime": { "type": "string" },
+                    "utc_offset": { "type": "string" },
+                    "week_number": { "type": "integer" }
+                  },
+                  "required": ["utc_datetime", "datetime", "timezone"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
