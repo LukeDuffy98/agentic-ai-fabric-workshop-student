@@ -1,4 +1,4 @@
-# Agentic AI ;& Fabric Workshop
+# Agentic AI & Fabric Workshop
 
 Start here: [instructions/README.md](instructions/README.md)
 
