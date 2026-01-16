@@ -17,7 +17,7 @@
 
 ## Estimated time
 
-30–40 minutes
+50–60 minutes
 
 ## Architecture sketch
 
@@ -27,47 +27,36 @@
 
 ## Step-by-step
 
-### 1) Open Microsoft Foundry (classic)
+1. (Browser) Open https://ai.azure.com/
+  - Expected result: The Microsoft Foundry sign-in page appears.
 
-**Where you are:** Web browser
+2. (Browser) Sign in with the lab account provided by your facilitator.
+  - Expected result: The Microsoft Foundry portal loads.
 
-1. Go to `https://ai.azure.com/`.
-2. In the top-right area of the portal, find the **New Foundry** toggle.
-3. Set **New Foundry** to **Off**.
-4. Confirm you are in the **classic** experience.
+3. (Microsoft Foundry) In the top-right area, find the **New Foundry** toggle.
 
-**Expected result:** You are in Microsoft Foundry (classic).
+4. (Microsoft Foundry) Set **New Foundry** to **Off**.
+  - Expected result: You are in Microsoft Foundry (classic).
 
-### 2) Open the lab project
+5. (Microsoft Foundry) Open the project named `<<LAB_FOUNDRY_PROJECT_NAME>>`.
+  - Expected result: You can see project experiences such as **Agents**.
 
-**Where you are:** Microsoft Foundry (classic)
+6. (Microsoft Foundry) Select **Agents**.
+  - Expected result: You see the Agents screen.
 
-1. In the Microsoft Foundry home experience, open the project named `<<LAB_FOUNDRY_PROJECT_NAME>>`.
+7. (Microsoft Foundry) Select **Create an agent**.
+  - Expected result: The agent create screen opens.
 
-**Expected result:** You are inside the project and can see project experiences such as Agents.
+8. (Microsoft Foundry) In the create screen, set:
+  - **Name**: `Shift-Assist-<your-initials>`
+  - **Model**: `<<LAB_MODEL_DEPLOYMENT_NAME>>`
 
-### 3) Create your agent
+9. (Microsoft Foundry) Select **Create**.
+  - Expected result: Your agent opens in the **Agent playground** with a right-side **Setup** pane.
 
-**Where you are:** Microsoft Foundry (classic)
+10. (Microsoft Foundry — Agent playground) In the **Setup** pane, select **Instructions**.
 
-1. Open **Agents**.
-2. Select **Create an agent**.
-3. In the create screen, set:
-   - **Name**: `Shift-Assist-<your-initials>`
-   - **Model**: select `<<LAB_MODEL_DEPLOYMENT_NAME>>`
-4. Select **Create**.
-
-**Expected result:** Your agent opens in the **Agent playground** (or a create/debug screen) with a right-side **Setup** pane.
-
-### 4) Add baseline instructions (Version 1)
-
-**Where you are:** Agent playground
-
-1. In the right-side **Setup** pane, find **Instructions**.
-2. Replace the instructions with the text below.
-3. Select **Save** (or **Update**, depending on what the portal shows).
-
-**Instructions (V1)**
+11. (Microsoft Foundry — Agent playground) Replace the instructions with the text below.
 
 ```text
 You are Shift Assist, a scheduling assistant for Contoso Support.
@@ -85,16 +74,10 @@ Response format (always):
 3) Notes (short bullets)
 ```
 
-**Expected result:** The agent instructions are saved.
+12. (Microsoft Foundry — Agent playground) Select **Save**.
+  - Expected result: The agent instructions are saved.
 
-### 5) Test the agent with a repeatable prompt
-
-**Where you are:** Agent playground
-
-1. In the chat area, enter the prompt below.
-2. Send the prompt.
-
-**Test prompt A**
+13. (Microsoft Foundry — Agent playground) Send this prompt:
 
 ```text
 Create a 1-week on-call schedule for:
@@ -106,16 +89,15 @@ Constraints:
 Ask up to 3 clarifying questions if needed.
 ```
 
-**Expected result:** You get a schedule table and short notes.
+14. (Microsoft Foundry — Agent playground) Confirm the agent returns:
+  - A schedule table
+  - Notes
+  - No more than 3 clarifying questions
+  - Expected result: You have a usable “first draft” schedule.
 
-### 6) Improve instructions to reduce randomness (Version 2)
+15. (Microsoft Foundry — Agent playground) In the **Setup** pane, select **Instructions**.
 
-**Where you are:** Agent playground
-
-1. In **Setup** → **Instructions**, replace the instructions with the text below.
-2. Select **Save**.
-
-**Instructions (V2)**
+16. (Microsoft Foundry — Agent playground) Replace the instructions with the text below.
 
 ```text
 You are Shift Assist, a scheduling assistant for Contoso Support.
@@ -136,25 +118,38 @@ Output rules:
   4) Notes
 
 Validation checks:
-- Include a bullet list that explicitly confirms each stated constraint.
+- Include bullets that explicitly confirm each stated constraint.
 
 Knowledge citation:
 - If you used any uploaded knowledge, cite it as: Source: <filename>
 ```
 
-**Expected result:** The updated instructions are saved.
+17. (Microsoft Foundry — Agent playground) Select **Save**.
+  - Expected result: The updated instructions are saved.
 
-### 7) Re-test and compare
+18. (Microsoft Foundry — Agent playground) Re-run the same schedule prompt from step 13.
+  - Expected result: The response now includes a “Validation checks” section.
 
-**Where you are:** Agent playground
+19. (Microsoft Foundry — Agent playground) Send this “missing requirements” prompt:
 
-1. Re-run **Test prompt A**.
-2. Check whether the agent:
-   - Asks fewer unnecessary questions
-   - Adds a “Validation checks” section
-   - Clearly confirms each constraint
+```text
+Draft a 1-week on-call schedule for Alex, Bri, Chen, Dev.
+```
 
-**Expected result:** The response is more structured and self-checking than before.
+20. (Microsoft Foundry — Agent playground) Confirm the agent asks clarifying questions instead of guessing.
+  - Expected result: You see up to 3 clarifying questions.
+
+21. (Microsoft Foundry — Agent playground) Send this “conflicting constraints” prompt:
+
+```text
+Create a 1-week on-call schedule for Alex, Bri, Chen, Dev.
+Constraints:
+- Each person covers exactly 10 shifts
+- Week has only 10 total shifts
+```
+
+22. (Microsoft Foundry — Agent playground) Confirm the agent proposes the smallest change needed.
+  - Expected result: The agent explains why the constraints cannot both be true.
 
 ## Validation
 

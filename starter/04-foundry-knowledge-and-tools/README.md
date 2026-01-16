@@ -23,7 +23,7 @@
 
 ## Estimated time
 
-40–55 minutes
+50–60 minutes
 
 ## Architecture sketch
 
@@ -36,51 +36,45 @@
 
 ## Step-by-step
 
-### 1) Open Microsoft Foundry (classic) and your agent
+1. (Browser) Open https://ai.azure.com/
+  - Expected result: The Microsoft Foundry portal loads.
 
-**Where you are:** Web browser
+2. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**.
+  - Expected result: You are in Microsoft Foundry (classic).
 
-1. Go to `https://ai.azure.com/`.
-2. Set the **New Foundry** toggle to **Off**.
-3. Open the project `<<LAB_FOUNDRY_PROJECT_NAME>>`.
-4. Open **Agents**.
-5. Select your agent: `Shift-Assist-<your-initials>`.
+3. (Microsoft Foundry) Open the project `<<LAB_FOUNDRY_PROJECT_NAME>>`.
+  - Expected result: The project opens.
 
-**Expected result:** The Agent playground opens for your existing agent.
+4. (Microsoft Foundry) Select **Agents**.
 
-### 2) Add knowledge (File Search) — company policy
+5. (Microsoft Foundry) Select your agent: `Shift-Assist-<your-initials>`.
+  - Expected result: The Agent playground opens.
 
-**Where you are:** Agent playground
+6. (Microsoft Foundry — Agent playground) In the right-side **Setup** pane, under **Knowledge**, select **Add**.
 
-1. In the right-side **Setup** pane, scroll to **Knowledge**.
-2. Select **Add**.
-3. Select **Files**.
-4. Select **Select local files**.
-5. Choose `labs/agentic-ai-fabric-workshop/assets/foundry/contoso-support-policy.md`.
-6. Select **Upload and save**.
+7. (Microsoft Foundry — Agent playground) Select **Files**.
 
-**Expected result:** The file is added under the agent’s knowledge.
+8. (Microsoft Foundry — Agent playground) Select **Select local files**.
 
-### 3) Add knowledge (File Search) — “Fabric output” constraints
+9. (Microsoft Foundry — Agent playground) Select the file `labs/agentic-ai-fabric-workshop/assets/foundry/contoso-support-policy.md`.
 
-**Where you are:** Agent playground
+10. (Microsoft Foundry — Agent playground) Select **Upload and save**.
+  - Expected result: The policy file appears under Knowledge for the agent.
 
-1. In **Setup** → **Knowledge**, select **Add**.
-2. Select **Files**.
-3. Select **Select local files**.
-4. Choose `labs/agentic-ai-fabric-workshop/assets/foundry/fabric_shift_constraints.md`.
-5. Select **Upload and save**.
+11. (Microsoft Foundry — Agent playground) Under **Knowledge**, select **Add** again.
 
-**Expected result:** The “Fabric output” document is added under the agent’s knowledge.
+12. (Microsoft Foundry — Agent playground) Select **Files**.
 
-### 4) Update instructions to require grounded answers (Version 3)
+13. (Microsoft Foundry — Agent playground) Select **Select local files**.
 
-**Where you are:** Agent playground
+14. (Microsoft Foundry — Agent playground) Select the file `labs/agentic-ai-fabric-workshop/assets/foundry/fabric_shift_constraints.md`.
 
-1. In **Setup** → **Instructions**, replace the instructions with the text below.
-2. Select **Save**.
+15. (Microsoft Foundry — Agent playground) Select **Upload and save**.
+  - Expected result: The Fabric constraints file appears under Knowledge for the agent.
 
-**Instructions (V3)**
+16. (Microsoft Foundry — Agent playground) In the **Setup** pane, select **Instructions**.
+
+17. (Microsoft Foundry — Agent playground) Replace the instructions with the text below.
 
 ```text
 You are Shift Assist, a scheduling assistant for Contoso Support.
@@ -103,47 +97,39 @@ Source rule:
 - If you used knowledge, list it as: Source: <filename>
 ```
 
-**Expected result:** Your agent is configured to cite the uploaded knowledge.
+18. (Microsoft Foundry — Agent playground) Select **Save**.
+  - Expected result: The agent is configured to cite sources.
 
-### 5) Validate the agent is using knowledge
-
-**Where you are:** Agent playground
-
-1. Send the prompt below.
-
-**Test prompt B**
+19. (Microsoft Foundry — Agent playground) Send this prompt:
 
 ```text
 From company policy, are there any days we must avoid scheduling on-call?
 Answer with bullets and include Sources.
 ```
 
-**Expected result:** The agent answers and includes a **Sources** section listing `contoso-support-policy.md`.
+20. (Microsoft Foundry — Agent playground) Confirm the response includes:
+  - A bullets answer
+  - `Source: contoso-support-policy.md`
+  - Expected result: The agent is demonstrably grounding on the policy file.
 
-### 6) Add an OpenAPI tool (World Time API)
+21. (Microsoft Foundry — Agent playground) In the **Setup** pane, scroll to **action** and select **Add**.
 
-**Where you are:** Agent playground
+22. (Microsoft Foundry — Agent playground) Select **OpenAPI 3.0 specified tool**.
 
-1. In the right-side **Setup** pane, scroll to **action**.
-2. Select **Add**.
-3. Select **OpenAPI 3.0 specified tool**.
-4. Set:
-   - **Tool name**: `worldtime_utc`
-   - **Description**: `Gets the current UTC time for logging and schedule timestamps.`
-5. Select **Next**.
-6. In the authentication step, select **anonymous**.
-7. Copy the full contents of `labs/agentic-ai-fabric-workshop/assets/foundry/openapi_worldtime_utc.json` and paste it into the OpenAPI specification box.
-8. Select **Review and add** (or **Add tool**, depending on what the portal shows).
+23. (Microsoft Foundry — Agent playground) Set:
+  - **Tool name**: `worldtime_utc`
+  - **Description**: `Gets the current UTC time for logging and schedule timestamps.`
 
-**Expected result:** The OpenAPI tool appears under the agent’s **action** tools.
+24. (Microsoft Foundry — Agent playground) Select **Next**.
 
-### 7) Prove the tool works
+25. (Microsoft Foundry — Agent playground) Select **anonymous** authentication.
 
-**Where you are:** Agent playground
+26. (Microsoft Foundry — Agent playground) Copy the full contents of `labs/agentic-ai-fabric-workshop/assets/foundry/openapi_worldtime_utc.json` and paste it into the OpenAPI specification box.
 
-1. Send the prompt below.
+27. (Microsoft Foundry — Agent playground) Select **Review and add**.
+  - Expected result: The OpenAPI tool appears under the agent’s action tools.
 
-**Test prompt C**
+28. (Microsoft Foundry — Agent playground) Send this prompt:
 
 ```text
 Call the World Time tool to get the current UTC time.
@@ -153,15 +139,10 @@ Then respond with:
 Include Sources (even if none).
 ```
 
-**Expected result:** The agent calls the tool and returns a UTC timestamp.
+29. (Microsoft Foundry — Agent playground) Confirm you see a UTC timestamp.
+  - Expected result: The tool call succeeded.
 
-### 8) Final scenario prompt — policy + Fabric constraints + tool
-
-**Where you are:** Agent playground
-
-1. Send the prompt below.
-
-**Final prompt**
+30. (Microsoft Foundry — Agent playground) Send this final prompt:
 
 ```text
 Create a 1-week on-call schedule for:
@@ -179,7 +160,12 @@ Extra requirements:
 Return the normal output sections, including Sources.
 ```
 
-**Expected result:** The agent produces a schedule, validates constraints, cites both files, and includes UTC time in Notes.
+31. (Microsoft Foundry — Agent playground) Confirm the output includes:
+  - A schedule table
+  - Explicit validation checks
+  - Sources listing both files
+  - A UTC time in Notes
+  - Expected result: You have a grounded schedule that uses both knowledge and a tool.
 
 ## Validation
 
