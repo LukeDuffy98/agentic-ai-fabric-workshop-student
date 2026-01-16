@@ -1,33 +1,58 @@
-# Exercise 02 — Fabric data workflow (placeholder)
+# Exercise 02 — Fabric data workflow (Portal-only)
 
 ## Goal
 
-Use the facilitator-provided Fabric workspace and dataset to produce an auditable output.
+Use Microsoft Fabric to:
+
+1. Review a pipeline run that loaded sample data into a Lakehouse table.
+2. Validate the loaded data.
+3. Validate the facilitator-provided output and audit tables.
 
 ## Instructions
 
 1. **Where:** Browser (Fabric)
-   - Open the facilitator-provided workspace.
-   - Locate the dataset/lakehouse named by your facilitator.
-   - **Expected result:** You can browse the tables/files.
+   - Open `https://app.fabric.microsoft.com`.
+   - Open the workspace provided by your facilitator.
+   - **Expected result:** The workspace item list is visible.
 
-2. **Where:** VS Code
-   - Create `out/exercise-02-notes.md`.
-   - Record:
-     - Workspace name
-     - Dataset/lakehouse name
-     - The table/file you selected
-   - **Expected result:** Notes file exists.
+2. **Where:** Browser (Fabric)
+   - Switch to the **Data Factory** experience.
+   - **Expected result:** The Data Factory experience loads.
 
 3. **Where:** Browser (Fabric)
-   - Run the simplest query/preview the facilitator instructs you to run.
-   - Copy the first 5 rows (no sensitive data).
-   - Paste them into `out/exercise-02-notes.md`.
+   - In the workspace item list, select the pipeline `01_Load_PublicHolidays`.
+   - **Expected result:** The pipeline details open.
+
+4. **Where:** Browser (Fabric)
+   - Open the pipeline **Output** pane.
+   - **Expected result:** A recent run shows **Succeeded**.
+
+5. **Where:** Browser (Fabric)
+   - Return to the workspace item list.
+   - Open the Lakehouse provided by your facilitator.
+   - **Expected result:** The Lakehouse opens.
+
+6. **Where:** Browser (Fabric)
+   - Under **Tables**, select `public_holidays_raw`.
+   - Select **Preview**.
+   - **Expected result:** You can see rows and a column named `Countryorregion`.
+
+7. **Where:** Browser (Fabric)
+   - Under **Tables**, select `public_holidays_summary`.
+   - Select **Preview**.
+   - **Expected result:** You can see a summary of countries/regions and counts.
+
+8. **Where:** Browser (Fabric)
+   - Under **Tables**, select `agent_run_audit`.
+   - Select **Preview**.
+   - **Expected result:** You can see audit rows including `input_table` and `output_table`.
 
 ## Validation
 
-- `out/exercise-02-notes.md` includes the selected input data reference and the captured sample output.
+- `public_holidays_raw` exists and previews successfully.
+- `public_holidays_summary` exists and previews successfully.
+- `agent_run_audit` exists and contains at least one row.
 
 ## Cleanup
 
-Delete the `out/` folder when done.
+No cleanup is required for this exercise. Do not delete shared lab resources.
