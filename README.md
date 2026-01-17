@@ -3,8 +3,9 @@
 ## Learning objectives
 - Complete a portal-only walkthrough of Microsoft Foundry (classic) to understand the key project areas.
 - Create a compliance-first agent and validate grounded answers from uploaded files.
-- Connect a pre-provisioned Microsoft Fabric data agent and validate a successful tool call.
+- Connect a Microsoft Fabric data agent and validate a successful tool call.
 - Connect a pre-provisioned Azure Logic Apps workflow and validate it writes an entity to Azure Table storage.
+- Build Fabric lakehouse data with Dataflow Gen2 + Copilot and connect it to a Foundry agent.
 
 ## Prereqs
 - You have a web browser and you can sign in with your lab account.
@@ -16,9 +17,10 @@
   - **Logic App workflow name:** `<<LOGIC_APP_WORKFLOW_NAME>>`
   - **Storage account name:** `<<STORAGE_ACCOUNT_NAME>>`
   - **Storage table name:** `<<STORAGE_TABLE_NAME>>`
+  - **Fabric capacity name (Lab 2):** `<<FABRIC_CAPACITY_NAME>>`
 
 ## Estimated time
-90–120 minutes
+150–210 minutes
 
 ## Architecture sketch
 - You build an agent in Microsoft Foundry (classic).
@@ -30,7 +32,7 @@
 1. (Browser) Open [workshop/README.md](workshop/README.md).
 
 ## Validation
-- You can open Lab 1 and you have the required placeholders from your facilitator.
+- You can open Lab 1 and Lab 2 and you have the required placeholders from your facilitator.
 
 ## Cleanup
 1. (Browser) Close the browser tab.

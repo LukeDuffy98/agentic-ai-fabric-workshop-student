@@ -184,3 +184,265 @@
 - https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools-classic/fabric?view=foundry-classic#setup
 - https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools-classic/logic-apps?view=foundry-classic#add-a-logic-apps-workflow-to-an-agent-using-the-microsoft-foundry-portal
 - https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-quickstart-portal
+
+---
+
+# Lab 2 — Build Fabric lakehouse data with Dataflow Gen2 + Copilot, then connect it to a Foundry agent
+
+## Learning objectives
+- Create a Microsoft Fabric workspace and lakehouse.
+- Use Dataflow Gen2 to ingest data from a URL into a lakehouse table.
+- Use Copilot in Dataflow Gen2 to assist with ingest/transform steps.
+- Create and publish a Fabric data agent over the lakehouse table.
+- Use Copilot in Power BI to chat with the Fabric data agent.
+- Connect the published Fabric data agent to a Microsoft Foundry (classic) agent using the Microsoft Fabric tool.
+
+## Prereqs
+- You have a web browser and you can sign in with your lab account.
+- Your facilitator provides these exact values:
+  - **Foundry project name:** `<<FOUNDRY_PROJECT_NAME>>`
+  - **Model deployment name:** `<<MODEL_DEPLOYMENT_NAME>>`
+  - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
+  - **Fabric capacity name:** `<<FABRIC_CAPACITY_NAME>>`
+
+- Your facilitator has already confirmed these tenant prerequisites (students do not change tenant settings):
+  - Copilot is enabled for Fabric.
+  - Copilot is enabled for Power BI, including the standalone Copilot experience.
+  - Fabric data agents are enabled in the tenant.
+
+## Estimated time
+60–90 minutes
+
+## Architecture sketch
+- You ingest sample data into a Fabric Lakehouse table using Dataflow Gen2.
+- You create a Fabric data agent over that lakehouse table and publish it.
+- You chat with the data agent in Copilot in Power BI.
+- You connect the published Fabric data agent to a Foundry (classic) agent using the Microsoft Fabric tool.
+
+## Step-by-step
+1. (Browser) Open https://app.fabric.microsoft.com.
+
+2. (Microsoft Fabric) In the left navigation, select **Workspaces**.
+
+3. (Microsoft Fabric) Select **New workspace**.
+
+4. (Microsoft Fabric) In **Name**, enter `Lab2_<<STUDENT_ID>>`.
+
+5. (Microsoft Fabric) Expand **Advanced**.
+
+6. (Microsoft Fabric) In **License mode**, select **Fabric capacity**.
+
+7. (Microsoft Fabric) In **Capacity**, select `<<FABRIC_CAPACITY_NAME>>`.
+
+8. (Microsoft Fabric) Select **Apply**.
+
+9. (Microsoft Fabric) In your workspace, select **New item**.
+
+10. (Microsoft Fabric) In the search box, enter `Lakehouse`.
+
+11. (Microsoft Fabric) Select **Lakehouse**.
+
+12. (Microsoft Fabric) In the **New lakehouse** dialog, in **Name**, enter `lh_orders_<<STUDENT_ID>>`.
+
+13. (Microsoft Fabric) Select **Create**.
+
+14. (Microsoft Fabric) Select **Workspaces**.
+
+15. (Microsoft Fabric) Select the workspace `Lab2_<<STUDENT_ID>>`.
+
+16. (Microsoft Fabric) Select **New item**.
+
+17. (Microsoft Fabric) In the search box, enter `Dataflow Gen2`.
+
+18. (Microsoft Fabric) Select **Dataflow Gen2**.
+
+19. (Microsoft Fabric) In the name prompt, enter `df_orders_<<STUDENT_ID>>`.
+
+20. (Microsoft Fabric — Dataflow Gen2) Select the **Home** tab.
+
+21. (Microsoft Fabric — Dataflow Gen2) Select **Copilot**.
+
+22. (Microsoft Fabric — Dataflow Gen2) In the bottom-left of the Copilot pane, select the starter prompt icon.
+
+23. (Microsoft Fabric — Dataflow Gen2) Select **Get data from**.
+
+24. (Microsoft Fabric — Get data) In the **Get data** window, search for `OData`.
+
+25. (Microsoft Fabric — Get data) Select the **OData** connector.
+
+26. (Microsoft Fabric — Connect to data source) In **URL**, paste this value:
+
+    ```http
+    https://services.odata.org/V4/Northwind/Northwind.svc/
+    ```
+
+27. (Microsoft Fabric — Connect to data source) Select **Next**.
+
+28. (Microsoft Fabric — Navigator) Select the **Orders** table.
+
+29. (Microsoft Fabric — Navigator) Select **Create**.
+
+30. (Microsoft Fabric — Dataflow Gen2) Select the query named **Orders**.
+
+31. (Microsoft Fabric — Dataflow Gen2) In the Copilot pane, select the starter prompt icon.
+
+32. (Microsoft Fabric — Dataflow Gen2) Select **Describe this query**.
+
+33. (Microsoft Fabric — Dataflow Gen2) Select **Add data destination**.
+
+34. (Microsoft Fabric — Dataflow Gen2) Select **Lakehouse**.
+
+35. (Microsoft Fabric — Connect to data destination) Select **Next**.
+
+36. (Microsoft Fabric — Choose destination target) Select the lakehouse `lh_orders_<<STUDENT_ID>>`.
+
+37. (Microsoft Fabric — Choose destination target) In **New table name**, enter `orders`.
+
+38. (Microsoft Fabric — Choose destination target) Select **Next**.
+
+39. (Microsoft Fabric — Choose destination settings) In **Update method**, select **Replace**.
+
+40. (Microsoft Fabric — Choose destination settings) Select **Save settings**.
+
+41. (Microsoft Fabric — Dataflow Gen2) Select **Publish**.
+
+42. (Microsoft Fabric) Wait until publishing completes and you return to the workspace.
+
+43. (Microsoft Fabric) In the workspace item list, find `df_orders_<<STUDENT_ID>>`.
+
+44. (Microsoft Fabric) Select the ellipsis (**...**) next to `df_orders_<<STUDENT_ID>>`.
+
+45. (Microsoft Fabric) Select **Refresh now**.
+
+46. (Microsoft Fabric) Wait for the refresh to finish.
+
+47. (Microsoft Fabric) Open the lakehouse `lh_orders_<<STUDENT_ID>>`.
+
+48. (Microsoft Fabric — Lakehouse) Select **Tables**.
+
+49. (Microsoft Fabric — Lakehouse) Select the table `orders`.
+
+50. (Microsoft Fabric) Select **Workspaces**.
+
+51. (Microsoft Fabric) Select the workspace `Lab2_<<STUDENT_ID>>`.
+
+52. (Microsoft Fabric) Select **New item**.
+
+53. (Microsoft Fabric) In the search box, enter `Fabric data agent`.
+
+54. (Microsoft Fabric) Select **Fabric data agent**.
+
+55. (Microsoft Fabric) In the name prompt, enter `da_orders_<<STUDENT_ID>>`.
+
+56. (Microsoft Fabric — Fabric data agent) In the OneLake catalog, select the lakehouse `lh_orders_<<STUDENT_ID>>`.
+
+57. (Microsoft Fabric — Fabric data agent) Select **Add**.
+
+58. (Microsoft Fabric — Fabric data agent) In the left **Explorer** pane, select the lakehouse `lh_orders_<<STUDENT_ID>>`.
+
+59. (Microsoft Fabric — Fabric data agent) Select the checkbox for the table `orders`.
+
+60. (Microsoft Fabric — Fabric data agent) In the chat area, send: `How many rows are in the orders table?`.
+
+61. (Microsoft Fabric — Fabric data agent) Select **Publish**.
+
+62. (Microsoft Fabric — Publish data agent) Select **Publish**.
+
+63. (Microsoft Fabric — Publish data agent) Copy the **published URL** that appears.
+
+64. (Browser) Open https://app.powerbi.com/.
+
+65. (Power BI) In the left navigation, select **Copilot**.
+
+66. (Power BI — Copilot) In the chat box, select **Add items for better results**.
+
+67. (Power BI — Select items) Select **Data agents**.
+
+68. (Power BI — Select data agent) Select `da_orders_<<STUDENT_ID>>`.
+
+69. (Power BI — Select data agent) Select **Confirm**.
+
+70. (Power BI — Copilot) Send: `How many rows are in the orders table?`.
+
+71. (Power BI — Copilot) Send: `Show the top 5 ship countries by number of orders.`.
+
+72. (Browser) Open https://ai.azure.com/.
+
+73. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**.
+
+74. (Microsoft Foundry) Select your project named `<<FOUNDRY_PROJECT_NAME>>`.
+
+75. (Microsoft Foundry) Select **Agents**.
+
+76. (Microsoft Foundry) Select **Create an agent**.
+
+77. (Microsoft Foundry) In **Name**, enter `Lab2-<<STUDENT_ID>>`.
+
+78. (Microsoft Foundry) In **Model deployment**, select `<<MODEL_DEPLOYMENT_NAME>>`.
+
+79. (Microsoft Foundry) Select **Create**.
+
+80. (Microsoft Foundry — Agent playground) In **Instructions**, paste this text:
+
+    `You are a compliance-first assistant. Use the Microsoft Fabric tool for questions about the orders dataset in the connected Fabric data agent. If you don't have enough information, say you don't know.`
+
+81. (Microsoft Foundry — Agent playground) In the right-side **Setup** pane, under **knowledge**, select **Add**.
+
+82. (Microsoft Foundry — Agent playground) Select **Microsoft Fabric**.
+
+83. (Microsoft Foundry — Agent playground) Select **Add connection**.
+
+84. (Microsoft Foundry — Agent playground) In `workspace-id`, paste the value from your published URL between `/groups/` and `/aiskills/`.
+
+85. (Microsoft Foundry — Agent playground) For `workspace-id`, select **is secret**.
+
+86. (Microsoft Foundry — Agent playground) In `artifact-id`, paste the value from your published URL after `/aiskills/`.
+
+87. (Microsoft Foundry — Agent playground) For `artifact-id`, select **is secret**.
+
+88. (Microsoft Foundry — Agent playground) Select **Save**.
+
+89. (Microsoft Foundry — Agent playground) In the chat box, send: `Use the Microsoft Fabric tool to answer: How many rows are in the orders table?`.
+
+## Validation
+- In Fabric, the workspace `Lab2_<<STUDENT_ID>>` exists and contains:
+  - The lakehouse `lh_orders_<<STUDENT_ID>>`.
+  - The table `orders`.
+  - The Fabric data agent `da_orders_<<STUDENT_ID>>`.
+- In Power BI Copilot, you can add `da_orders_<<STUDENT_ID>>` and receive an answer to a question about `orders`.
+- In Foundry (classic), `Lab2-<<STUDENT_ID>>` exists and its run history shows a successful Microsoft Fabric tool call.
+
+## Cleanup
+1. (Microsoft Foundry) Select **Agents**.
+
+2. (Microsoft Foundry) Select the agent `Lab2-<<STUDENT_ID>>`.
+
+3. (Microsoft Foundry) Select **Delete**.
+
+4. (Microsoft Foundry) Select **Delete**.
+
+5. (Microsoft Fabric) Open https://app.fabric.microsoft.com.
+
+6. (Microsoft Fabric) Select **Workspaces**.
+
+7. (Microsoft Fabric) Select the workspace `Lab2_<<STUDENT_ID>>`.
+
+8. (Microsoft Fabric) Select **Workspace settings**.
+
+9. (Microsoft Fabric) Select **Delete this workspace**.
+
+10. (Microsoft Fabric) Select **Delete**.
+
+## Compliance / safety notes
+- Do not enter secrets, tokens, access keys, names, or emails in prompts.
+- Use only your assigned `<<STUDENT_ID>>` as an identifier.
+
+## References
+- https://learn.microsoft.com/en-us/fabric/fundamentals/create-workspaces
+- https://learn.microsoft.com/en-us/fabric/data-engineering/tutorial-build-lakehouse#create-a-lakehouse
+- https://learn.microsoft.com/en-us/fabric/data-factory/tutorial-dataflows-gen2-pipeline-activity
+- https://learn.microsoft.com/en-us/fabric/data-factory/copilot-fabric-data-factory-get-started#get-started-with-copilot-for-dataflow-gen2
+- https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent
+- https://learn.microsoft.com/en-us/fabric/data-science/data-agent-end-to-end-tutorial
+- https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-introduction
+- https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools-classic/fabric?view=foundry-classic#setup
