@@ -28,14 +28,12 @@
 
 ## Step-by-step
 1. (Browser) Open [workshop/README.md](workshop/README.md).
-   - Expected result: You see Lab 1 instructions.
 
 ## Validation
 - You can open Lab 1 and you have the required placeholders from your facilitator.
 
 ## Cleanup
 1. (Browser) Close the browser tab.
-   - Expected result: No lab resources are changed.
 
 ## Compliance / safety notes
 - Do not enter secrets, tokens, access keys, names, or emails in prompts.
