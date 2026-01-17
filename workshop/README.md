@@ -42,6 +42,8 @@
 90–120 minutes
 
 ## Architecture sketch
+![Lab 1 architecture sketch](../assets/diagrams/lab1-architecture.svg)
+
 - A Foundry (classic) agent answers questions and uses knowledge/tools.
 - File knowledge provides policy grounding from local markdown files.
 - A Fabric data agent is connected as a knowledge tool for data-backed answers.
@@ -238,6 +240,8 @@
 60–90 minutes
 
 ## Architecture sketch
+![Lab 2 architecture sketch](../assets/diagrams/lab2-architecture.svg)
+
 - You ingest sample data into a Fabric Lakehouse table using Dataflow Gen2.
 - You create a Fabric data agent over that lakehouse table and publish it.
 - You chat with the data agent in Copilot in Power BI.

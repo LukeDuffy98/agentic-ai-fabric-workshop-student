@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Lab 1 architecture sketch: Foundry agent with file knowledge, Fabric data agent tool, and Logic App action writing to Azure Table Storage.">
+  <defs>
+    <style><![CDATA[
+      :root { --bg:#0b1020; --panel:#111a33; --stroke:#2b3a6b; --text:#e9eefc; --muted:#b8c6ff; --accent:#6aa7ff; --accent2:#7ee3c2; --warn:#ffcc66; }
+      .bg { fill: var(--bg); }
+      .panel { fill: var(--panel); stroke: var(--stroke); stroke-width:2; rx:16; }
+      .title { font: 700 26px "Segoe UI", Arial, sans-serif; fill: var(--text); }
+      .h { font: 700 18px "Segoe UI", Arial, sans-serif; fill: var(--text); }
+      .t { font: 400 14px "Segoe UI", Arial, sans-serif; fill: var(--text); }
+      .m { font: 400 13px "Segoe UI", Arial, sans-serif; fill: var(--muted); }
+      .pill { fill: rgba(106,167,255,0.15); stroke: var(--accent); stroke-width:1.5; rx:999; }
+      .pill2 { fill: rgba(126,227,194,0.14); stroke: var(--accent2); stroke-width:1.5; rx:999; }
+      .pill3 { fill: rgba(255,204,102,0.14); stroke: var(--warn); stroke-width:1.5; rx:999; }
+      .arrow { stroke: var(--muted); stroke-width:2.5; fill:none; marker-end:url(#arrowHead); }
+      .arrow2 { stroke: var(--accent2); stroke-width:2.5; fill:none; marker-end:url(#arrowHead2); }
+      .arrow3 { stroke: var(--accent); stroke-width:2.5; fill:none; marker-end:url(#arrowHead3); }
+      .note { font: 400 12px "Segoe UI", Arial, sans-serif; fill: var(--muted); }
+    ]]></style>
+
+    <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#b8c6ff" />
+    </marker>
+    <marker id="arrowHead2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7ee3c2" />
+    </marker>
+    <marker id="arrowHead3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6aa7ff" />
+    </marker>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="720" />
+
+  <text class="title" x="48" y="58">Lab 1 — Foundry agent with knowledge + actions (portal-only)</text>
+  <text class="note" x="48" y="86">Classic Foundry + pre-provisioned integrations. No CLI/SDK. No secrets/PII.</text>
+
+  <!-- Student -->
+  <rect class="panel" filter="url(#shadow)" x="48" y="130" width="280" height="170" />
+  <text class="h" x="72" y="165">Student (browser)</text>
+  <text class="m" x="72" y="192">Uses assigned &lt;&lt;STUDENT_ID&gt;&gt;</text>
+  <rect class="pill" x="72" y="214" width="232" height="34" />
+  <text class="t" x="92" y="236">Prompts + validation checks</text>
+
+  <!-- Foundry -->
+  <rect class="panel" filter="url(#shadow)" x="410" y="120" width="740" height="230" />
+  <text class="h" x="434" y="155">Microsoft Foundry (classic)</text>
+  <text class="m" x="434" y="182">Agent: Lab1-&lt;&lt;STUDENT_ID&gt;&gt;  •  Model deployment: &lt;&lt;MODEL_DEPLOYMENT_NAME&gt;&gt;</text>
+
+  <rect class="pill" x="434" y="204" width="210" height="34" />
+  <text class="t" x="454" y="226">Instructions</text>
+
+  <rect class="pill2" x="660" y="204" width="210" height="34" />
+  <text class="t" x="680" y="226">Knowledge</text>
+
+  <rect class="pill3" x="886" y="204" width="238" height="34" />
+  <text class="t" x="906" y="226">Actions</text>
+
+  <text class="m" x="454" y="266">Compliance-first behavior</text>
+  <text class="m" x="680" y="266">Files + Fabric tool</text>
+  <text class="m" x="906" y="266">Logic App workflow</text>
+
+  <!-- Knowledge: Files -->
+  <rect class="panel" filter="url(#shadow)" x="410" y="390" width="360" height="190" />
+  <text class="h" x="434" y="425">File knowledge (upload)</text>
+  <text class="m" x="434" y="452">Grounding sources (student repo)</text>
+  <rect class="pill2" x="434" y="472" width="312" height="34" />
+  <text class="t" x="454" y="494">contoso-support-policy.md</text>
+  <rect class="pill2" x="434" y="516" width="312" height="34" />
+  <text class="t" x="454" y="538">fabric_shift_constraints.md</text>
+
+  <!-- Fabric data agent -->
+  <rect class="panel" filter="url(#shadow)" x="790" y="390" width="360" height="190" />
+  <text class="h" x="814" y="425">Microsoft Fabric data agent</text>
+  <text class="m" x="814" y="452">Pre-provisioned + published</text>
+  <rect class="pill" x="814" y="472" width="312" height="34" />
+  <text class="t" x="834" y="494">Tool call for business data</text>
+  <text class="note" x="814" y="532">Connection uses workspace-id + artifact-id (marked secret)</text>
+
+  <!-- Logic App + Storage -->
+  <rect class="panel" filter="url(#shadow)" x="48" y="410" width="280" height="170" />
+  <text class="h" x="72" y="445">Azure Logic Apps</text>
+  <text class="m" x="72" y="472">Workflow: &lt;&lt;LOGIC_APP_WORKFLOW_NAME&gt;&gt;</text>
+  <rect class="pill3" x="72" y="494" width="232" height="34" />
+  <text class="t" x="92" y="516">Write audit entity</text>
+
+  <rect class="panel" filter="url(#shadow)" x="48" y="600" width="1102" height="90" />
+  <text class="h" x="72" y="636">Azure Storage Table</text>
+  <text class="m" x="72" y="662">Storage account: &lt;&lt;STORAGE_ACCOUNT_NAME&gt;&gt;  •  Table: &lt;&lt;STORAGE_TABLE_NAME&gt;&gt;  •  PartitionKey: lab1  •  RowKey: &lt;&lt;STUDENT_ID&gt;&gt;</text>
+
+  <!-- Flows -->
+  <path class="arrow" d="M328 215 C360 215, 378 210, 410 210" />
+
+  <path class="arrow3" d="M650 247 C660 300, 630 340, 590 390" />
+  <text class="note" x="520" y="330">Upload files</text>
+
+  <path class="arrow3" d="M870 247 C910 300, 930 340, 970 390" />
+  <text class="note" x="900" y="330">Query via tool</text>
+
+  <path class="arrow2" d="M940 238 C770 340, 420 380, 328 475" />
+  <text class="note" x="530" y="372">Invoke action</text>
+
+  <path class="arrow" d="M188 580 C190 610, 190 595, 190 600" />
+  <path class="arrow" d="M188 580 C210 610, 260 612, 360 630" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C190 600, 200 605, 220 610" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C200 610, 240 625, 330 632" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C220 620, 330 640, 410 648" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C230 625, 390 650, 470 656" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C260 640, 540 660, 650 664" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C280 650, 640 666, 870 668" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C280 650, 700 668, 980 668" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C280 650, 780 670, 1120 670" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C260 630, 370 640, 520 648" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C260 630, 370 640, 520 648" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C310 640, 540 650, 740 656" opacity="0"/>
+
+  <path class="arrow" d="M188 580 C320 640, 560 650, 780 656" opacity="0"/>
+
+  <!-- Actual arrow from Logic Apps to Storage Table -->
+  <path class="arrow" d="M188 580 C190 608, 210 622, 250 635" />
+  <path class="arrow" d="M250 635 C360 672, 560 678, 800 678" opacity="0"/>
+  <path class="arrow" d="M250 635 C360 660, 560 660, 700 660" opacity="0"/>
+  <path class="arrow" d="M250 635 C360 650, 560 650, 700 650" opacity="0"/>
+
+  <path class="arrow" d="M250 635 C420 680, 760 680, 1120 670" />
+
+  <!-- Small legend -->
+  <rect class="panel" x="900" y="20" width="250" height="86" />
+  <text class="h" x="924" y="52">Legend</text>
+  <text class="m" x="924" y="74">Blue: configure/knowledge</text>
+  <text class="m" x="924" y="94">Green: action invocation</text>
+</svg>
