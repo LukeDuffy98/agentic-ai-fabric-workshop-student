@@ -24,23 +24,63 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "abbreviation": { "type": "string" },
-                    "client_ip": { "type": "string" },
-                    "datetime": { "type": "string" },
-                    "day_of_week": { "type": "integer" },
-                    "day_of_year": { "type": "integer" },
-                    "dst": { "type": "boolean" },
-                    "dst_from": { "type": ["string", "null"] },
-                    "dst_offset": { "type": "integer" },
-                    "dst_until": { "type": ["string", "null"] },
-                    "raw_offset": { "type": "integer" },
-                    "timezone": { "type": "string" },
-                    "unixtime": { "type": "integer" },
-                    "utc_datetime": { "type": "string" },
-                    "utc_offset": { "type": "string" },
-                    "week_number": { "type": "integer" }
+                    "abbreviation": {
+                      "type": "string"
+                    },
+                    "client_ip": {
+                      "type": "string"
+                    },
+                    "datetime": {
+                      "type": "string"
+                    },
+                    "day_of_week": {
+                      "type": "integer"
+                    },
+                    "day_of_year": {
+                      "type": "integer"
+                    },
+                    "dst": {
+                      "type": "boolean"
+                    },
+                    "dst_from": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "dst_offset": {
+                      "type": "integer"
+                    },
+                    "dst_until": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "raw_offset": {
+                      "type": "integer"
+                    },
+                    "timezone": {
+                      "type": "string"
+                    },
+                    "unixtime": {
+                      "type": "integer"
+                    },
+                    "utc_datetime": {
+                      "type": "string"
+                    },
+                    "utc_offset": {
+                      "type": "string"
+                    },
+                    "week_number": {
+                      "type": "integer"
+                    }
                   },
-                  "required": ["utc_datetime", "datetime", "timezone"]
+                  "required": [
+                    "utc_datetime",
+                    "datetime",
+                    "timezone"
+                  ]
                 }
               }
             }
