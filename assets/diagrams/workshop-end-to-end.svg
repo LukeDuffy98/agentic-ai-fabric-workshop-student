@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-label="Workshop end-to-end architecture sketch">
+  <defs>
+    <style>
+      .bg { fill: #0b1220; }
+      .card { fill: #111b2e; stroke: #2a3a5f; stroke-width: 2; }
+      .card2 { fill: #0f1a2b; stroke: #2a3a5f; stroke-width: 2; }
+      .title { fill: #e8eefc; font: 700 22px Segoe UI, Arial, sans-serif; }
+      .h2 { fill: #d7e3ff; font: 700 16px Segoe UI, Arial, sans-serif; }
+      .txt { fill: #c7d2f0; font: 400 13px Segoe UI, Arial, sans-serif; }
+      .muted { fill: #9fb0da; font: 400 12px Segoe UI, Arial, sans-serif; }
+      .pill { fill: #0d2744; stroke: #2f6adf; stroke-width: 2; }
+      .pill2 { fill: #1a2036; stroke: #3a4b74; stroke-width: 2; }
+      .accent { fill: #7aa2ff; }
+      .ok { fill: #30d19a; }
+      .warn { fill: #ffcc66; }
+      .line { stroke: #7aa2ff; stroke-width: 3; fill: none; }
+      .dash { stroke-dasharray: 8 6; }
+      .arrow { fill: #7aa2ff; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1400" height="760" class="bg" />
+
+  <!-- Title -->
+  <text x="48" y="54" class="title">Agentic AI &amp; Fabric Workshop — End-to-end sketch</text>
+  <text x="48" y="80" class="muted">Portal-only • Microsoft Foundry (classic) • No secrets/PII • Uses &lt;&lt;STUDENT_ID&gt;&gt;</text>
+
+  <!-- Shared student box -->
+  <rect x="48" y="112" width="300" height="92" rx="14" class="card" />
+  <text x="72" y="148" class="h2">Student</text>
+  <text x="72" y="174" class="txt">Browser-only steps</text>
+  <text x="72" y="194" class="txt">Uses lab account + &lt;&lt;STUDENT_ID&gt;&gt;</text>
+
+  <!-- Shared Foundry box -->
+  <rect x="390" y="112" width="962" height="92" rx="14" class="card" />
+  <text x="414" y="148" class="h2">Microsoft Foundry (classic)</text>
+  <text x="414" y="174" class="txt">Project: &lt;&lt;FOUNDRY_PROJECT_NAME&gt;&gt; • Model deployment: &lt;&lt;MODEL_DEPLOYMENT_NAME&gt;&gt;</text>
+  <text x="414" y="194" class="muted">New Foundry toggle: Off</text>
+
+  <!-- Connector: Student -> Foundry -->
+  <path d="M348,158 C370,158 370,158 390,158" class="line" marker-end="url(#arrow)" />
+
+  <!-- LAB 1 lane -->
+  <rect x="48" y="232" width="1304" height="234" rx="18" class="card2" />
+  <text x="72" y="264" class="h2">Lab 1 — Foundry agent with knowledge + tools + action</text>
+  <text x="72" y="288" class="muted">Uses facilitator-provisioned Fabric data agent + Logic App + Table Storage for validation</text>
+
+  <!-- Lab 1: Foundry Agent -->
+  <rect x="72" y="312" width="320" height="132" rx="14" class="pill" />
+  <text x="96" y="344" class="h2">Foundry agent: Lab1-&lt;&lt;STUDENT_ID&gt;&gt;</text>
+  <text x="96" y="370" class="txt">Instructions: compliance-first</text>
+  <text x="96" y="392" class="txt">Uses Files knowledge + tools</text>
+
+  <!-- Lab 1: Files knowledge -->
+  <rect x="418" y="320" width="250" height="56" rx="12" class="pill2" />
+  <text x="438" y="352" class="txt">Files knowledge</text>
+  <text x="556" y="352" class="muted">(2 markdown files)</text>
+
+  <rect x="418" y="388" width="250" height="56" rx="12" class="pill2" />
+  <text x="438" y="420" class="txt">contoso-support-policy.md</text>
+
+  <rect x="682" y="388" width="250" height="56" rx="12" class="pill2" />
+  <text x="702" y="420" class="txt">fabric_shift_constraints.md</text>
+
+  <!-- Lab 1: Fabric tool -->
+  <rect x="948" y="320" width="360" height="56" rx="12" class="pill2" />
+  <text x="968" y="352" class="txt">Microsoft Fabric tool → published data agent</text>
+
+  <!-- Lab 1: Logic Apps action -->
+  <rect x="948" y="388" width="360" height="56" rx="12" class="pill2" />
+  <text x="968" y="420" class="txt">Azure Logic Apps action → writes audit entity</text>
+
+  <!-- Lab 1: Azure Table -->
+  <rect x="948" y="456" width="360" height="56" rx="12" class="pill2" />
+  <text x="968" y="488" class="txt">Azure Storage Table</text>
+  <text x="1116" y="488" class="muted">PartitionKey=lab1, RowKey=&lt;&lt;STUDENT_ID&gt;&gt;</text>
+
+  <!-- Lab 1 arrows -->
+  <path d="M392,378 C404,378 404,348 418,348" class="line" marker-end="url(#arrow)" />
+  <path d="M668,348 C796,348 820,348 948,348" class="line" marker-end="url(#arrow)" />
+  <path d="M668,414 C796,414 820,414 948,414" class="line" marker-end="url(#arrow)" />
+  <path d="M1128,444 C1128,452 1128,454 1128,456" class="line" marker-end="url(#arrow)" />
+
+  <!-- LAB 2 lane -->
+  <rect x="48" y="492" width="1304" height="236" rx="18" class="card2" />
+  <text x="72" y="524" class="h2">Lab 2 — Build Fabric data, publish a data agent, chat in Power BI, connect to Foundry</text>
+  <text x="72" y="548" class="muted">Students create Fabric artifacts; then connect the published data agent URL to Foundry (classic)</text>
+
+  <!-- Lab 2: Fabric build path -->
+  <rect x="72" y="572" width="360" height="132" rx="14" class="pill" />
+  <text x="96" y="604" class="h2">Microsoft Fabric</text>
+  <text x="96" y="630" class="txt">Workspace: Lab2_&lt;&lt;STUDENT_ID&gt;&gt;</text>
+  <text x="96" y="652" class="txt">Lakehouse: lh_orders_&lt;&lt;STUDENT_ID&gt;&gt;</text>
+  <text x="96" y="674" class="txt">Table: orders</text>
+
+  <!-- Dataflow Gen2 ingest -->
+  <rect x="458" y="572" width="300" height="56" rx="12" class="pill2" />
+  <text x="478" y="604" class="txt">Dataflow Gen2</text>
+  <text x="588" y="604" class="muted">(Copilot-assisted)</text>
+
+  <rect x="458" y="638" width="300" height="56" rx="12" class="pill2" />
+  <text x="478" y="670" class="txt">OData URL → Orders</text>
+
+  <!-- Fabric data agent publish -->
+  <rect x="786" y="572" width="300" height="56" rx="12" class="pill2" />
+  <text x="806" y="604" class="txt">Fabric data agent</text>
+  <text x="930" y="604" class="muted">da_orders_&lt;&lt;STUDENT_ID&gt;&gt;</text>
+
+  <rect x="786" y="638" width="300" height="56" rx="12" class="pill2" />
+  <text x="806" y="670" class="txt">Publish URL</text>
+  <text x="888" y="670" class="muted">/groups/&lt;workspace-id&gt;/aiskills/&lt;artifact-id&gt;</text>
+
+  <!-- Power BI Copilot -->
+  <rect x="1112" y="572" width="240" height="56" rx="12" class="pill2" />
+  <text x="1132" y="604" class="txt">Power BI Copilot</text>
+
+  <!-- Foundry agent consumes published URL -->
+  <rect x="1112" y="638" width="240" height="56" rx="12" class="pill2" />
+  <text x="1132" y="670" class="txt">Foundry agent: Lab2-&lt;&lt;STUDENT_ID&gt;&gt;</text>
+
+  <!-- Lab 2 arrows -->
+  <path d="M432,638 C446,638 446,600 458,600" class="line" marker-end="url(#arrow)" />
+  <path d="M608,628 C608,634 608,634 608,638" class="line" marker-end="url(#arrow)" />
+  <path d="M758,600 C772,600 772,600 786,600" class="line" marker-end="url(#arrow)" />
+  <path d="M936,628 C936,634 936,634 936,638" class="line" marker-end="url(#arrow)" />
+  <path d="M1086,600 C1098,600 1100,600 1112,600" class="line" marker-end="url(#arrow)" />
+  <path d="M1086,666 C1098,666 1100,666 1112,666" class="line" marker-end="url(#arrow)" />
+
+  <!-- Cross-lane link: Foundry uses Fabric tool in Lab 2 -->
+  <path d="M1232,638 C1252,602 1210,450 1012,376" class="line dash" marker-end="url(#arrow)" />
+  <text x="1040" y="466" class="muted">Foundry connects to Fabric via tool</text>
+
+  <!-- Legend -->
+  <rect x="48" y="712" width="1304" height="32" rx="12" class="card" />
+  <circle cx="76" cy="728" r="6" class="accent" />
+  <text x="92" y="733" class="muted">Solid arrows: primary data/tool flow</text>
+  <line x1="370" y1="728" x2="414" y2="728" class="line dash" />
+  <text x="428" y="733" class="muted">Dashed arrow: Foundry tool connection concept</text>
+  <circle cx="776" cy="728" r="6" class="ok" />
+  <text x="792" y="733" class="muted">Validation: view run history + Storage Table entity</text>
+</svg>

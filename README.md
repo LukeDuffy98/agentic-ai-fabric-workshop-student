@@ -23,6 +23,8 @@
 150–210 minutes
 
 ## Architecture sketch
+![Workshop end-to-end architecture sketch](assets/diagrams/workshop-end-to-end.svg)
+
 - You build an agent in Microsoft Foundry (classic).
 - The agent uses file knowledge (uploaded policy docs) for grounding.
 - The agent uses a Fabric data agent for data-backed answers.
