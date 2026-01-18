@@ -1,3 +1,11 @@
+# Workshop end-to-end sketch
+![Workshop end-to-end architecture sketch](../assets/diagrams/workshop-end-to-end.svg)
+
+- Lab 1 focuses on building a Foundry (classic) agent with file grounding, a Fabric tool connection, and a Logic Apps action.
+- Lab 2 focuses on building Fabric data, publishing a Fabric data agent, using Copilot in Power BI, and connecting that data agent to Foundry.
+
+---
+
 # Lab 1 — Explore Microsoft Foundry (classic) and build an agent with knowledge + actions
 
 ## Learning objectives
