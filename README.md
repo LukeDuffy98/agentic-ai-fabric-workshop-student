@@ -31,7 +31,7 @@
 - The agent uses a Logic App action to write an auditable record to Azure Table storage.
 
 ## Step-by-step
-1. (Browser) Open [workshop/README.md](workshop/README.md).
+1. (Browser) Open [workshop/LAB-INSTRUCTIONS.md](workshop/LAB-INSTRUCTIONS.md).
 
 ## Validation
 - You can open Lab 1 and Lab 2 and you have the required placeholders from your facilitator.
