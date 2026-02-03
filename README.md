@@ -10,14 +10,14 @@
 ## Prereqs
 - You have a web browser and you can sign in with your lab account.
 - Your facilitator provides these exact values:
-  - **Foundry project name:** `<<FOUNDRY_PROJECT_NAME>>`
-  - **Model deployment name:** `<<MODEL_DEPLOYMENT_NAME>>`
+  - **Foundry project name:** `2026-02-05-agentic-ai`
+  - **Model deployment name:** `gpt-5-chat`
   - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
   - **Fabric data agent endpoint URL:** `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` (format: `https://<environment>.fabric.microsoft.com/groups/<workspace_id>/aiskills/<artifact-id>`)
-  - **Logic App workflow name:** `<<LOGIC_APP_WORKFLOW_NAME>>`
-  - **Storage account name:** `<<STORAGE_ACCOUNT_NAME>>`
-  - **Storage table name:** `<<STORAGE_TABLE_NAME>>`
-  - **Fabric capacity name (Lab 2):** `<<FABRIC_CAPACITY_NAME>>`
+  - **Logic App workflow name:** `la-20260205-agentic-ai`
+  - **Storage account name:** `sa20260205agenticai`
+  - **Storage table name:** `audit20260205`
+  - **Fabric capacity name (Lab 2):** `fc-20260205-agentic-ai`
 
 ## Estimated time
 150–210 minutes

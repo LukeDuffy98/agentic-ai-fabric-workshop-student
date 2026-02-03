@@ -18,23 +18,23 @@
 ## Prereqs
 - You have a web browser and you can sign in with your lab account.
 - Your facilitator provides these exact values:
-  - **Foundry project name:** `<<FOUNDRY_PROJECT_NAME>>`
-  - **Model deployment name:** `<<MODEL_DEPLOYMENT_NAME>>`
+    - **Foundry project name:** `2026-02-05-agentic-ai`
+    - **Model deployment name:** `gpt-5-chat`
   - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
   - **Fabric data agent endpoint URL:** `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` (format: `https://<environment>.fabric.microsoft.com/groups/<workspace_id>/aiskills/<artifact-id>`)
-  - **Logic App workflow name:** `<<LOGIC_APP_WORKFLOW_NAME>>`
-  - **Storage account name:** `<<STORAGE_ACCOUNT_NAME>>`
-  - **Storage table name:** `<<STORAGE_TABLE_NAME>>`
+    - **Logic App workflow name:** `la-20260205-agentic-ai`
+    - **Storage account name:** `sa20260205agenticai`
+    - **Storage table name:** `audit20260205`
 
 - Your facilitator has already prepared these resources (students do not create Azure resources in this lab):
-  - A Microsoft Foundry project with a model deployment named `<<MODEL_DEPLOYMENT_NAME>>`.
+    - A Microsoft Foundry project with a model deployment named `gpt-5-chat`.
   - A published Microsoft Fabric data agent (you will use its published endpoint URL).
   - An Azure Logic Apps **Consumption** workflow that:
     - Is in the same subscription and resource group as the Foundry project.
     - Starts with a **Request** trigger (with a description).
     - Ends with a **Response** action.
-    - Writes an entity to the table `<<STORAGE_TABLE_NAME>>` in storage account `<<STORAGE_ACCOUNT_NAME>>`.
-  - An Azure Storage account that contains a table named `<<STORAGE_TABLE_NAME>>`.
+        - Writes an entity to the table `audit20260205` in storage account `sa20260205agenticai`.
+    - An Azure Storage account that contains a table named `audit20260205`.
 
 - Required permissions (least privilege):
   - On the Foundry project: **Azure AI Developer**.
@@ -62,13 +62,13 @@
 
 2. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**.
 
-3. (Microsoft Foundry) Select your project named `<<FOUNDRY_PROJECT_NAME>>`.
+3. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`.
 
 4. (Microsoft Foundry) Select **Model catalog**.
 
 5. (Microsoft Foundry) Select **Models + endpoints**.
 
-6. (Microsoft Foundry) Select the deployment named `<<MODEL_DEPLOYMENT_NAME>>`.
+6. (Microsoft Foundry) Select the deployment named `gpt-5-chat`.
 
 7. (Microsoft Foundry) Select **Edit**.
 
@@ -92,7 +92,7 @@
 
 15. (Microsoft Foundry) In **Name**, enter `Lab1-<<STUDENT_ID>>`.
 
-16. (Microsoft Foundry) In **Model deployment**, select `<<MODEL_DEPLOYMENT_NAME>>`.
+16. (Microsoft Foundry) In **Model deployment**, select `gpt-5-chat`.
 
 17. (Microsoft Foundry) Select **Create**.
 
@@ -158,7 +158,7 @@
 
 42. (Microsoft Foundry — Agent playground) Select **Azure Logic Apps**.
 
-43. (Microsoft Foundry — Agent playground) Select the workflow named `<<LOGIC_APP_WORKFLOW_NAME>>`.
+43. (Microsoft Foundry — Agent playground) Select the workflow named `la-20260205-agentic-ai`.
 
 44. (Microsoft Foundry — Agent playground) Select **Add**.
 
@@ -174,13 +174,13 @@
 
 47. (Browser) Open https://portal.azure.com/.
 
-48. (Azure portal) Open the storage account named `<<STORAGE_ACCOUNT_NAME>>`.
+48. (Azure portal) Open the storage account named `sa20260205agenticai`.
 
 49. (Azure portal) Select **Storage Browser**.
 
 50. (Azure portal) Select **Tables**.
 
-51. (Azure portal) Select the table named `<<STORAGE_TABLE_NAME>>`.
+51. (Azure portal) Select the table named `audit20260205`.
 
 52. (Azure portal) Find the entity with **PartitionKey** `lab1`.
 
@@ -191,7 +191,7 @@
 - In Microsoft Foundry (classic), your agent has two uploaded files under **knowledge** and can answer a question grounded in those files.
 - In Microsoft Foundry (classic), your agent run history shows at least one successful **Microsoft Fabric** tool call.
 - In Microsoft Foundry (classic), your agent run history shows a successful **Azure Logic Apps** action call.
-- In the Azure portal Storage Browser, the table `<<STORAGE_TABLE_NAME>>` contains an entity with PartitionKey `lab1` and RowKey `<<STUDENT_ID>>`.
+- In the Azure portal Storage Browser, the table `audit20260205` contains an entity with PartitionKey `lab1` and RowKey `<<STUDENT_ID>>`.
 
 ## Cleanup
 1. (Microsoft Foundry) Select **Agents**.
@@ -234,10 +234,10 @@
 ## Prereqs
 - You have a web browser and you can sign in with your lab account.
 - Your facilitator provides these exact values:
-  - **Foundry project name:** `<<FOUNDRY_PROJECT_NAME>>`
-  - **Model deployment name:** `<<MODEL_DEPLOYMENT_NAME>>`
+    - **Foundry project name:** `2026-02-05-agentic-ai`
+    - **Model deployment name:** `gpt-5-chat`
   - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
-  - **Fabric capacity name:** `<<FABRIC_CAPACITY_NAME>>`
+    - **Fabric capacity name:** `fc-20260205-agentic-ai`
 
 - Your facilitator has already confirmed these tenant prerequisites (students do not change tenant settings):
   - Copilot is enabled for Fabric.
@@ -268,7 +268,7 @@
 
 6. (Microsoft Fabric) In **License mode**, select **Fabric capacity**.
 
-7. (Microsoft Fabric) In **Capacity**, select `<<FABRIC_CAPACITY_NAME>>`.
+7. (Microsoft Fabric) In **Capacity**, select `fc-20260205-agentic-ai`.
 
 8. (Microsoft Fabric) Select **Apply**.
 
@@ -442,7 +442,7 @@
 
 79. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**.
 
-80. (Microsoft Foundry) Select your project named `<<FOUNDRY_PROJECT_NAME>>`.
+80. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`.
 
 81. (Microsoft Foundry) Select **Agents**.
 
@@ -450,7 +450,7 @@
 
 83. (Microsoft Foundry) In **Name**, enter `Lab2-<<STUDENT_ID>>`.
 
-84. (Microsoft Foundry) In **Model deployment**, select `<<MODEL_DEPLOYMENT_NAME>>`.
+84. (Microsoft Foundry) In **Model deployment**, select `gpt-5-chat`.
 
 85. (Microsoft Foundry) Select **Create**.
 
