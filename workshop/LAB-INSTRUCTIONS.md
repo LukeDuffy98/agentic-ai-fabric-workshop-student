@@ -20,20 +20,20 @@
 - Your facilitator provides these exact values:
     - **Foundry project name:** `2026-02-05-agentic-ai`
     - **Model deployment name:** `gpt-5-chat`
-  - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
-  - **Fabric data agent endpoint URL:** `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` (format: `https://<environment>.fabric.microsoft.com/groups/<workspace_id>/aiskills/<artifact-id>`)
+    - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
+    - **Fabric data agent endpoint URL:** `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` (format: `https://<environment>.fabric.microsoft.com/groups/<workspace_id>/aiskills/<artifact-id>`)
     - **Logic App workflow name:** `la-20260205-agentic-ai`
     - **Storage account name:** `sa20260205agenticai`
     - **Storage table name:** `audit20260205`
 
 - Your facilitator has already prepared these resources (students do not create Azure resources in this lab):
     - A Microsoft Foundry project with a model deployment named `gpt-5-chat`.
-  - A published Microsoft Fabric data agent (you will use its published endpoint URL).
-  - An Azure Logic Apps **Consumption** workflow that:
+    - A published Microsoft Fabric data agent (you will use its published endpoint URL).
+    - An Azure Logic Apps **Consumption** workflow that:
     - Is in the same subscription and resource group as the Foundry project.
     - Starts with a **Request** trigger (with a description).
     - Ends with a **Response** action.
-        - Writes an entity to the table `audit20260205` in storage account `sa20260205agenticai`.
+            - Writes an entity to the table `audit20260205` in storage account `sa20260205agenticai`.
     - An Azure Storage account that contains a table named `audit20260205`.
 
 - Required permissions (least privilege):
@@ -58,27 +58,45 @@
 - A Logic App is connected as an action to write an audit entity to Azure Table storage.
 
 ## Step-by-step
-1. (Browser) Open https://ai.azure.com/.
+0. open a browser in a new incgnito or in private user mode depending on your browser . You can  use ctrl+shift+n
 
-2. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**.
+1. (Browser) Open https://ai.azure.com/. ![alt text](image.png)
 
-3. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`.
+2. sign in using the username and password supplied to you earlier. ![alt text](image-1.png)
 
-4. (Microsoft Foundry) Select **Model catalog**.
+3. Yiu will be using the Temporary Access password ![alt text](image-2.png)
 
-5. (Microsoft Foundry) Select **Models + endpoints**.
+2. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**. ![alt text](image-3.png)
 
-6. (Microsoft Foundry) Select the deployment named `gpt-5-chat`.
+3. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`. ![alt text](image-4.png)
 
-7. (Microsoft Foundry) Select **Edit**.
+4. If required, then select "Go to project" ![alt text](image-5.png)
 
-8. (Microsoft Foundry) Select **Cancel**.
+4. (Microsoft Foundry) Select **Model catalog**. ![alt text](image-6.png)
 
-9. (Microsoft Foundry) Select **Guardrails + controls**.
+5. (Microsoft Foundry) Select **Models + endpoints**. ![alt text](image-7.png)
+
+6. (Microsoft Foundry) Select the deployment named `gpt-5-chat`. ![alt text](image-8.png)
+
+7. (Microsoft Foundry) Select **Edit**. ![alt text](image-9.png)
+
+8. (Microsoft Foundry) Notice the **Content Filter** option. Select **Cancel**. ![alt text](image-10.png)
+
+9. (Microsoft Foundry) Select **Guardrails + controls**. ![alt text](image-11.png)
 
 10. (Microsoft Foundry) Select the **Content filters** tab.
 
 11. (Microsoft Foundry) Select the **Blocklists** tab.
+
+11. Try this pormpt "Tell me about the merlion" Notice the response is allowed. ![alt text](image-12.png)
+
+11. Try this pormpt "Tell me about the unicorn" Notice the response is blocked. ![alt text](image-13.png)
+
+11. COnsider these:
+“Allowed”: Name the agent Lab1-07
+“Blocked”: Name the agent Lab1-student-0
+“Allowed”: Draft a polite support reply following the uploaded policy.
+“Blocked”: Draft a polite support reply following the uploaded policy and offer a refund.
 
 12. (Thinking checkpoint) In your notes, answer these questions in 1–2 sentences each:
 
@@ -220,45 +238,43 @@
 - https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-quickstart-portal
 
 ---
+1. (Browser) Open a new InPrivate/Incognito window (for example, press Ctrl+Shift+N).
 
-# Lab 2 — Build Fabric lakehouse data with Dataflow Gen2 + Copilot, then connect it to a Foundry agent
+2. (Browser) Open https://ai.azure.com/. ![alt text](image.png)
 
-## Learning objectives
-- Create a Microsoft Fabric workspace and lakehouse.
-- Use Dataflow Gen2 to ingest data from a URL into a lakehouse table.
-- Use Copilot in Dataflow Gen2 to assist with ingest/transform steps.
-- Create and publish a Fabric data agent over the lakehouse table.
-- Use Copilot in Power BI to chat with the Fabric data agent.
-- Connect the published Fabric data agent to a Microsoft Foundry (classic) agent using the Microsoft Fabric tool.
+3. (Browser) Sign in using the username and password supplied to you earlier. ![alt text](image-1.png)
 
-## Prereqs
-- You have a web browser and you can sign in with your lab account.
-- Your facilitator provides these exact values:
-    - **Foundry project name:** `2026-02-05-agentic-ai`
-    - **Model deployment name:** `gpt-5-chat`
-  - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
-    - **Fabric capacity name:** `fc-20260205-agentic-ai`
+4. (Browser) When prompted, use the **Temporary Access Pass (TAP)**. ![alt text](image-2.png)
 
-- Your facilitator has already confirmed these tenant prerequisites (students do not change tenant settings):
-  - Copilot is enabled for Fabric.
-  - Copilot is enabled for Power BI, including the standalone Copilot experience.
-  - Fabric data agents are enabled in the tenant.
+5. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**. ![alt text](image-3.png)
 
-## Estimated time
-135 minutes (includes a 10-minute tea break)
+6. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`. ![alt text](image-4.png)
 
-## Architecture sketch
-![Lab 2 architecture sketch](../assets/diagrams/lab2-architecture.svg)
+7. (Microsoft Foundry) If you see it, select **Go to project**. ![alt text](image-5.png)
 
-- You ingest sample data into a Fabric Lakehouse table using Dataflow Gen2.
-- You create a Fabric data agent over that lakehouse table and publish it.
-- You chat with the data agent in Copilot in Power BI.
-- You connect the published Fabric data agent to a Foundry (classic) agent using the Microsoft Fabric tool.
+8. (Microsoft Foundry) Select **Model catalog**. ![alt text](image-6.png)
 
-## Step-by-step
-1. (Browser) Open https://app.fabric.microsoft.com.
+9. (Microsoft Foundry) Select **Models + endpoints**. ![alt text](image-7.png)
 
-2. (Microsoft Fabric) In the left navigation, select **Workspaces**.
+10. (Microsoft Foundry) Select the deployment named `gpt-5-chat`. ![alt text](image-8.png)
+
+11. (Microsoft Foundry) Select **Edit**. ![alt text](image-9.png)
+
+12. (Microsoft Foundry) Notice the **Content filter** option, then select **Cancel**. ![alt text](image-10.png)
+
+13. (Microsoft Foundry) Select **Guardrails + controls**. ![alt text](image-11.png)
+
+14. (Microsoft Foundry) Select the **Content filters** tab.
+
+15. (Microsoft Foundry) Select the **Blocklists** tab.
+
+16. (Microsoft Foundry) Try this prompt: "Tell me about the merlion". Notice the response is allowed. ![alt text](image-12.png)
+
+17. (Microsoft Foundry) Try this prompt: "Tell me about the unicorn". Notice the response is blocked. ![alt text](image-13.png)
+
+18. (Optional) More blocklist demo prompts:
+    - Allowed: "Draft a polite support reply following the uploaded policy."
+    - Blocked: "Draft a polite support reply following the uploaded policy and offer a refund."
 
 3. (Microsoft Fabric) Select **New workspace**.
 
