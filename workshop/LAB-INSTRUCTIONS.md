@@ -361,6 +361,7 @@ Call this action when (and only when):
 ![alt text](image-44.png)
 
 13. (Microsoft Fabric) In the **New lakehouse** dialog, in **Name**, enter `lh_orders_<<STUDENT_ID>>`.
+![alt text](image-45.png)
 
 14. (Microsoft Fabric) Select **Create**.
 
@@ -373,24 +374,33 @@ Call this action when (and only when):
 16. (Microsoft Fabric) Select **Workspaces**.
 
 17. (Microsoft Fabric) Select the workspace `Lab2_<<STUDENT_ID>>`.
+![alt text](image-46.png)
+
+![alt text](image-47.png)
 
 18. (Microsoft Fabric) Select **New item**.
 
 19. (Microsoft Fabric) In the search box, enter `Dataflow Gen2`.
+![alt text](image-48.png)
 
 20. (Microsoft Fabric) Select **Dataflow Gen2**.
 
 21. (Microsoft Fabric) In the name prompt, enter `df_orders_<<STUDENT_ID>>`.
+![alt text](image-49.png)
 
 22. (Microsoft Fabric — Dataflow Gen2) Select the **Home** tab.
+![alt text](image-50.png)
 
-23. (Microsoft Fabric — Dataflow Gen2) Select **Copilot**.
+23. (Microsoft Fabric — Dataflow Gen2) Select **Copilot**. 
+![alt text](image-51.png)
 
-24. (Microsoft Fabric — Dataflow Gen2) In the bottom-left of the Copilot pane, select the starter prompt icon.
+
 
 25. (Microsoft Fabric — Dataflow Gen2) Select **Get data from**.
+![alt text](image-52.png)
 
 26. (Microsoft Fabric — Get data) In the **Get data** window, search for `OData`.
+![alt text](image-53.png)
 
 27. (Microsoft Fabric — Get data) Select the **OData** connector.
 
@@ -401,16 +411,22 @@ Call this action when (and only when):
     ```
 
 29. (Microsoft Fabric — Connect to data source) Select **Next**.
+![alt text](image-54.png)
 
 30. (Microsoft Fabric — Navigator) Select the **Orders** table.
 
 31. (Microsoft Fabric — Navigator) Select **Create**.
+![alt text](image-55.png)
 
 32. (Microsoft Fabric — Dataflow Gen2) Select the query named **Orders**.
+![alt text](image-56.png)
 
 33. (Microsoft Fabric — Dataflow Gen2) In the Copilot pane, select the starter prompt icon.
 
 34. (Microsoft Fabric — Dataflow Gen2) Select **Describe this query**.
+![alt text](image-57.png)
+
+![alt text](image-58.png)
 
 35. (Thinking checkpoint) In your notes, answer these questions in 1–2 sentences each:
 
@@ -419,30 +435,39 @@ Call this action when (and only when):
     - From your job role, what review/approval would you require before ingesting data from the internet?
 
 36. (Microsoft Fabric — Dataflow Gen2) Select **Add data destination**.
+![alt text](image-59.png)
 
 37. (Microsoft Fabric — Dataflow Gen2) Select **Lakehouse**.
+![alt text](image-60.png)
 
 38. (Microsoft Fabric — Connect to data destination) Select **Next**.
+![alt text](image-61.png)
 
 39. (Microsoft Fabric — Choose destination target) Select the lakehouse `lh_orders_<<STUDENT_ID>>`.
 
 40. (Microsoft Fabric — Choose destination target) In **New table name**, enter `orders`.
+![alt text](image-62.png)
 
 41. (Microsoft Fabric — Choose destination target) Select **Next**.
 
-42. (Microsoft Fabric — Choose destination settings) In **Update method**, select **Replace**.
+42. (Microsoft Fabric — Choose destination settings) In **Update method**,De-Select "Use automatic settings" select **Replace**.
+
+![alt text](image-63.png)
 
 43. (Microsoft Fabric — Choose destination settings) Select **Save settings**.
 
-44. (Microsoft Fabric — Dataflow Gen2) Select **Publish**.
+44. (Microsoft Fabric — Dataflow Gen2) Select **Save And Run**.
+![alt text](image-64.png)
 
-45. (Microsoft Fabric) Wait until publishing completes and you return to the workspace.
+45. (Microsoft Fabric) Wait until publishing completes and you return to the workspace. Check "Recent Runs" to see this.
+
 
 46. (Microsoft Fabric) In the workspace item list, find `df_orders_<<STUDENT_ID>>`.
 
 47. (Microsoft Fabric) Select the ellipsis (**...**) next to `df_orders_<<STUDENT_ID>>`.
 
-48. (Microsoft Fabric) Select **Refresh now**.
+48. (Microsoft Fabric) Select **Refresh now**. You may beed to scroll down.
+![alt text](image-65.png)
 
 49. (Microsoft Fabric) Wait for the refresh to finish.
 
@@ -450,7 +475,10 @@ Call this action when (and only when):
 
 51. (Microsoft Fabric — Lakehouse) Select **Tables**.
 
-52. (Microsoft Fabric — Lakehouse) Select the table `orders`.
+52. (Microsoft Fabric — Lakehouse) Select the table `orders`. If you do not see any tables, you may need to choose teh refresh option.
+![alt text](image-66.png)
+
+![alt text](image-67.png)
 
 53. (Thinking checkpoint) In your notes, answer these questions in 1–2 sentences each:
 
@@ -464,27 +492,43 @@ Call this action when (and only when):
 
 56. (Microsoft Fabric) Select **New item**.
 
-57. (Microsoft Fabric) In the search box, enter `Fabric data agent`.
+57. (Microsoft Fabric) In the search box, enter `Data agent`.
+![alt text](image-68.png)
 
 58. (Microsoft Fabric) Select **Fabric data agent**.
 
 59. (Microsoft Fabric) In the name prompt, enter `da_orders_<<STUDENT_ID>>`.
+![alt text](image-69.png)
+
+60. (Microsoft Fabric — Fabric data agent)  Select **Add Data**
+![alt text](image-71.png)
 
 60. (Microsoft Fabric — Fabric data agent) In the OneLake catalog, select the lakehouse `lh_orders_<<STUDENT_ID>>`.
+![alt text](image-72.png)
 
 61. (Microsoft Fabric — Fabric data agent) Select **Add**.
 
 62. (Microsoft Fabric — Fabric data agent) In the left **Explorer** pane, select the lakehouse `lh_orders_<<STUDENT_ID>>`.
 
 63. (Microsoft Fabric — Fabric data agent) Select the checkbox for the table `orders`.
+![alt text](image-73.png)
 
 64. (Microsoft Fabric — Fabric data agent) In the chat area, send: `How many rows are in the orders table?`.
+![alt text](image-74.png)
+
+![alt text](image-75.png)
 
 65. (Microsoft Fabric — Fabric data agent) Select **Publish**.
+![alt text](image-76.png)
 
 66. (Microsoft Fabric — Publish data agent) Select **Publish**.
+![alt text](image-77.png)
 
 67. (Microsoft Fabric — Publish data agent) Copy the **published URL** that appears.
+![alt text](image-78.png)
+
+You can also access this using the **Gear** icon 
+![alt text](image-79.png)
 
 68. (Thinking checkpoint) In your notes, answer these questions in 1–2 sentences each:
 
@@ -495,18 +539,23 @@ Call this action when (and only when):
 69. (Browser) Open https://app.powerbi.com/.
 
 70. (Power BI) In the left navigation, select **Copilot**.
+![alt text](image-80.png)
 
-71. (Power BI — Copilot) In the chat box, select **Add items for better results**.
+71. (Power BI — Copilot) In the chat box, select **Add items for better results (The Plus Symbol)**.
 
 72. (Power BI — Select items) Select **Data agents**.
 
 73. (Power BI — Select data agent) Select `da_orders_<<STUDENT_ID>>`.
+![alt text](image-81.png)
 
-74. (Power BI — Select data agent) Select **Confirm**.
 
 75. (Power BI — Copilot) Send: `How many rows are in the orders table?`.
+![alt text](image-82.png)
+
+![alt text](image-83.png)
 
 76. (Power BI — Copilot) Send: `Show the top 5 ship countries by number of orders.`.
+![alt text](image-84.png)
 
 77. (Thinking checkpoint) In your notes, answer these questions in 1–2 sentences each:
 
