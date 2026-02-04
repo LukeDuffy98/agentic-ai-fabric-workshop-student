@@ -58,45 +58,86 @@
 - A Logic App is connected as an action to write an audit entity to Azure Table storage.
 
 ## Step-by-step
-0. open a browser in a new incgnito or in private user mode depending on your browser . You can  use ctrl+shift+n
+1. (Browser) Open a new InPrivate/Incognito window (for example, press Ctrl+Shift+N).
 
-1. (Browser) Open https://ai.azure.com/. ![alt text](image.png)
+2. (Browser) Open https://ai.azure.com/.
 
-2. sign in using the username and password supplied to you earlier. ![alt text](image-1.png)
+    ![Open ai.azure.com](../assets/screenshots/image.png)
 
-3. Yiu will be using the Temporary Access password ![alt text](image-2.png)
+3. (Browser) Sign in using the username and password supplied to you earlier.
 
-2. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**. ![alt text](image-3.png)
+    ![Sign in](../assets/screenshots/image-1.png)
 
-3. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`. ![alt text](image-4.png)
+4. (Browser) When prompted, use the **Temporary Access Pass (TAP)**.
 
-4. If required, then select "Go to project" ![alt text](image-5.png)
+    ![Temporary Access Pass prompt](../assets/screenshots/image-2.png)
 
-4. (Microsoft Foundry) Select **Model catalog**. ![alt text](image-6.png)
+5. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**.
 
-5. (Microsoft Foundry) Select **Models + endpoints**. ![alt text](image-7.png)
+    ![Set New Foundry toggle off](../assets/screenshots/image-3.png)
 
-6. (Microsoft Foundry) Select the deployment named `gpt-5-chat`. ![alt text](image-8.png)
+6. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`.
 
-7. (Microsoft Foundry) Select **Edit**. ![alt text](image-9.png)
+    ![Select project](../assets/screenshots/image-4.png)
 
-8. (Microsoft Foundry) Notice the **Content Filter** option. Select **Cancel**. ![alt text](image-10.png)
+7. (Microsoft Foundry) If you see it, select **Go to project**.
 
-9. (Microsoft Foundry) Select **Guardrails + controls**. ![alt text](image-11.png)
+    ![Go to project](../assets/screenshots/image-5.png)
 
-10. (Microsoft Foundry) Select the **Content filters** tab.
+8. (Microsoft Foundry) Select **Model catalog**.
 
-11. (Microsoft Foundry) Select the **Blocklists** tab.
+    ![Model catalog](../assets/screenshots/image-6.png)
 
-11. Try this pormpt "Tell me about the merlion" Notice the response is allowed. ![alt text](image-12.png)
+9. (Microsoft Foundry) Select **Models + endpoints**.
 
-11. Try this pormpt "Tell me about the unicorn" Notice the response is blocked. ![alt text](image-13.png)
+    ![Models and endpoints](../assets/screenshots/image-7.png)
 
-11. COnsider these:
-“Allowed”: Name the agent Lab1-07
-“Blocked”: Name the agent Lab1-student-0
-“Allowed”: Draft a polite support reply following the uploaded policy.
-“Blocked”: Draft a polite support reply following the uploaded policy and offer a refund.
+10. (Microsoft Foundry) Select the deployment named `gpt-5-chat`.
+
+     ![Select deployment](../assets/screenshots/image-8.png)
+
+11. (Microsoft Foundry) Select **Edit**, notice the **Content filter** option, then select **Cancel**.
+
+     ![Edit deployment](../assets/screenshots/image-9.png)
+     ![Content filter option](../assets/screenshots/image-10.png)
+
+    (Microsoft Foundry) Select **Guardrails + controls**.
+
+    ![Guardrails and controls](../assets/screenshots/image-11.png)
+
+    (Microsoft Foundry) Select the **Content filters** tab, then select the **Blocklists** tab.
+
+     (Optional) Guardrails prompt demo (copy/paste):
+
+     ```text
+     Tell me about the merlion
+     ```
+
+     ![Allowed prompt example](../assets/screenshots/image-12.png)
+
+     ```text
+     Tell me about the unicorn
+     ```
+
+     ![Blocked prompt example](../assets/screenshots/image-13.png)
+
+     More prompt ideas (copy/paste):
+
+     ```text
+     Name the agent Lab1-07
+     ```
+
+     ```text
+     Name the agent Lab1-student-0
+     ```
+
+     ```text
+     Draft a polite support reply following the uploaded policy.
+     ```
+
+     ```text
+     Draft a polite support reply following the uploaded policy and offer a refund.
+     ```
 
 12. (Thinking checkpoint) In your notes, answer these questions in 1–2 sentences each:
 
@@ -104,29 +145,36 @@
     - Where are the guardrails you just viewed, and what risk do they reduce?
     - From your job role, what is one control you would require before production use?
 
-13. (Microsoft Foundry) Select **Agents**.
+13. (Microsoft Foundry) Select **Agents**. ![alt text](image-14.png)
 
-14. (Microsoft Foundry) Select **Create an agent**.
+14. (Microsoft Foundry) Select **New agent**. ![alt text](image-15.png)
 
-15. (Microsoft Foundry) In **Name**, enter `Lab1-<<STUDENT_ID>>`.
+15. (Microsoft Foundry) In **Name**, enter `Lab1-<<STUDENT_ID>>`. The Student ID is your username. The Agent ID is set by default.
 
 16. (Microsoft Foundry) In **Model deployment**, select `gpt-5-chat`.
 
-17. (Microsoft Foundry) Select **Create**.
 
-18. (Microsoft Foundry — Agent playground) In **Instructions**, paste this text:
+17. (Microsoft Foundry) In **Instructions**, paste this text:
 
     `You are a compliance-first assistant. Use only the information in uploaded files and tool responses. If you don't have enough information, say you don't know.`
 
-19. (Microsoft Foundry — Agent playground) In the chat box, send: `Confirm you are ready. Respond with only: READY`.
+18. Select `Try in playground` ![alt text](image-16.png)
 
+19. (Microsoft Foundry — Agent playground) In the chat box, send: `Confirm you are ready. Respond with only: READY`. ![alt text](image-17.png)
 20. (Microsoft Foundry — Agent playground) In the right-side **Setup** pane, under **knowledge**, select **Add**.
+![alt text](image-18.png)
 
-21. (Microsoft Foundry — Agent playground) Select **Files**.
 
-22. (Microsoft Foundry — Agent playground) Select **Select local files**.
+21. Please make sure you have downloaded these files 
+https://raw.githubusercontent.com/LukeDuffy98/agentic-ai-fabric-workshop-student/refs/heads/main/assets/foundry/contoso-support-policy.md
 
-23. (Microsoft Foundry — Agent playground) Select the file you downloaded named `contoso-support-policy.md`.
+https://raw.githubusercontent.com/LukeDuffy98/agentic-ai-fabric-workshop-student/refs/heads/main/assets/foundry/fabric_shift_constraints.md
+
+21. (Microsoft Foundry — Agent playground) Select **Files**. ![alt text](image-19.png)
+
+22. (Microsoft Foundry — Agent playground) Select **Select local files**. ![alt text](image-21.png)
+
+23. (Microsoft Foundry — Agent playground) Select the file you downloaded named `contoso-support-policy.md`. ![alt text](image-20.png)
 
 24. (Microsoft Foundry — Agent playground) Select **Upload and save**.
 
@@ -136,7 +184,11 @@
 
 27. (Microsoft Foundry — Agent playground) Select **Upload and save**.
 
-28. (Microsoft Foundry — Agent playground) In the chat box, send: `Based only on the uploaded policy, list the three most important support rules. Use a 3-bullet list.`
+28. (Microsoft Foundry — Agent playground) In the chat box, send: `Based only on the uploaded policy, list the three most important support rules. Use a 3-bullet list.` ![alt text](image-22.png)
+
+29. Click on "View Run Info" ![alt text](image-23.png)
+
+29. Notice the file search. ![alt text](image-24.png)
 
 29. (Thinking checkpoint) In your notes, answer these questions in 1–2 sentences each:
 
@@ -146,25 +198,31 @@
 
 30. (Microsoft Foundry — Agent playground) Under **knowledge**, select **Add**.
 
-31. (Microsoft Foundry — Agent playground) Select **Microsoft Fabric**.
+31. (Microsoft Foundry — Agent playground) Select **Microsoft Fabric**. ![alt text](image-25.png)
 
-32. (Microsoft Foundry — Agent playground) Select **Add connection**.
+32. (Microsoft Foundry — Agent playground) Select **Create connection**.
 
-33. (Microsoft Foundry — Agent playground) In `workspace-id`, paste the value from `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` between `/groups/` and `/aiskills/`.
+33. (Microsoft Foundry — Agent playground) In `workspace-id`, paste the value `2ca4cbdc-32a0-42ae-a79d-e16bc125eca1` from `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` between `/groups/` and `/aiskills/`.
 
 34. (Microsoft Foundry — Agent playground) For `workspace-id`, select **is secret**.
 
-35. (Microsoft Foundry — Agent playground) In `artifact-id`, paste the value from `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` after `/aiskills/`.
+35. (Microsoft Foundry — Agent playground) In `artifact-id`, paste the value `36678155-c9a9-45f8-a975-f104921ab812` from `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` after `/aiskills/`.
 
 36. (Microsoft Foundry — Agent playground) For `artifact-id`, select **is secret**.
 
-37. (Microsoft Foundry — Agent playground) Select **Save**.
+36. Add the name cn-<<LabUserName>> - The lab username provded earlier.
+
+37. (Microsoft Foundry — Agent playground) Select **Connect**. ![alt text](image-26.png)
 
 38. (Microsoft Foundry — Agent playground) In **Instructions**, append this sentence:
 
-    `For questions about business data, use the Microsoft Fabric tool.`
+    `For questions about business data, use the Microsoft Fabric tool.` ![alt text](image-27.png)
+
+38. (Microsoft Foundry — Agent playground) In **Deployment** chnage to **gpt-4o**
 
 39. (Microsoft Foundry — Agent playground) In the chat box, send: `Use the Microsoft Fabric tool to retrieve one small factual result from the connected data agent. Then summarize it in one sentence.`
+
+![alt text](image-28.png)
 
 40. (Thinking checkpoint) In your notes, answer these questions in 1–2 sentences each:
 
@@ -173,8 +231,10 @@
     - From your job role, what audit evidence would you want for tool calls?
 
 41. (Microsoft Foundry — Agent playground) Under **Actions**, select **Add**.
+![alt text](image-29.png)
 
 42. (Microsoft Foundry — Agent playground) Select **Azure Logic Apps**.
+![alt text](image-30.png)
 
 43. (Microsoft Foundry — Agent playground) Select the workflow named `la-20260205-agentic-ai`.
 
@@ -240,37 +300,37 @@
 ---
 1. (Browser) Open a new InPrivate/Incognito window (for example, press Ctrl+Shift+N).
 
-2. (Browser) Open https://ai.azure.com/. ![alt text](image.png)
+2. (Browser) Open https://ai.azure.com/. ![alt text](../assets/screenshots/image.png)
 
-3. (Browser) Sign in using the username and password supplied to you earlier. ![alt text](image-1.png)
+3. (Browser) Sign in using the username and password supplied to you earlier. ![alt text](../assets/screenshots/image-1.png)
 
-4. (Browser) When prompted, use the **Temporary Access Pass (TAP)**. ![alt text](image-2.png)
+4. (Browser) When prompted, use the **Temporary Access Pass (TAP)**. ![alt text](../assets/screenshots/image-2.png)
 
-5. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**. ![alt text](image-3.png)
+5. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**. ![alt text](../assets/screenshots/image-3.png)
 
-6. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`. ![alt text](image-4.png)
+6. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`. ![alt text](../assets/screenshots/image-4.png)
 
-7. (Microsoft Foundry) If you see it, select **Go to project**. ![alt text](image-5.png)
+7. (Microsoft Foundry) If you see it, select **Go to project**. ![alt text](../assets/screenshots/image-5.png)
 
-8. (Microsoft Foundry) Select **Model catalog**. ![alt text](image-6.png)
+8. (Microsoft Foundry) Select **Model catalog**. ![alt text](../assets/screenshots/image-6.png)
 
-9. (Microsoft Foundry) Select **Models + endpoints**. ![alt text](image-7.png)
+9. (Microsoft Foundry) Select **Models + endpoints**. ![alt text](../assets/screenshots/image-7.png)
 
-10. (Microsoft Foundry) Select the deployment named `gpt-5-chat`. ![alt text](image-8.png)
+10. (Microsoft Foundry) Select the deployment named `gpt-5-chat`. ![alt text](../assets/screenshots/image-8.png)
 
-11. (Microsoft Foundry) Select **Edit**. ![alt text](image-9.png)
+11. (Microsoft Foundry) Select **Edit**. ![alt text](../assets/screenshots/image-9.png)
 
-12. (Microsoft Foundry) Notice the **Content filter** option, then select **Cancel**. ![alt text](image-10.png)
+12. (Microsoft Foundry) Notice the **Content filter** option, then select **Cancel**. ![alt text](../assets/screenshots/image-10.png)
 
-13. (Microsoft Foundry) Select **Guardrails + controls**. ![alt text](image-11.png)
+13. (Microsoft Foundry) Select **Guardrails + controls**. ![alt text](../assets/screenshots/image-11.png)
 
 14. (Microsoft Foundry) Select the **Content filters** tab.
 
 15. (Microsoft Foundry) Select the **Blocklists** tab.
 
-16. (Microsoft Foundry) Try this prompt: "Tell me about the merlion". Notice the response is allowed. ![alt text](image-12.png)
+16. (Microsoft Foundry) Try this prompt: "Tell me about the merlion". Notice the response is allowed. ![alt text](../assets/screenshots/image-12.png)
 
-17. (Microsoft Foundry) Try this prompt: "Tell me about the unicorn". Notice the response is blocked. ![alt text](image-13.png)
+17. (Microsoft Foundry) Try this prompt: "Tell me about the unicorn". Notice the response is blocked. ![alt text](../assets/screenshots/image-13.png)
 
 18. (Optional) More blocklist demo prompts:
     - Allowed: "Draft a polite support reply following the uploaded policy."
