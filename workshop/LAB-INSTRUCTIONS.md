@@ -38,6 +38,7 @@
 
 - Required permissions (least privilege):
   - On the Foundry project: **Azure AI Developer**.
+    - On the resource group `2026-02-05-agentic-ai-fabric-rg`: **Reader**.
   - On the project’s storage account (for file uploads): **Storage Blob Data Contributor**.
   - On the storage account (for validation in the Azure portal): **Storage Table Data Reader**.
 
@@ -236,9 +237,23 @@ https://raw.githubusercontent.com/LukeDuffy98/agentic-ai-fabric-workshop-student
 42. (Microsoft Foundry — Agent playground) Select **Azure Logic Apps**.
 ![alt text](image-30.png)
 
-43. (Microsoft Foundry — Agent playground) Select the workflow named `la-20260205-agentic-ai`.
+    Note: If you do not see the workflow `la-20260205-agentic-ai` under **Your actions**, stop and ask your facilitator to confirm (1) you have **Reader** access to the resource group `2026-02-05-agentic-ai-fabric-rg`, and (2) the workflow is a **Consumption** logic app in the same subscription and resource group as this project, starts with **When an HTTP request is received** (with a **Description**), and ends with a **Response** action.
 
-44. (Microsoft Foundry — Agent playground) Select **Add**.
+43. (Microsoft Foundry — Agent playground) Select the workflow named `la-20260205-agentic-ai`.
+![alt text](image-31.png)
+
+44. (Microsoft Foundry — Agent playground) Select **Next**.
+![alt text](image-32.png)
+
+44. (Microsoft Foundry — Agent playground) enter the following for the **Describe how to invoke the tool**
+Use this action only to write a single audit record to Azure Table Storage for this lab.
+Call this action when (and only when):
+- The user explicitly asks to “write an audit entry”, "log an audit record”, or “record completion/status” for the workshop.
+- You have the required fields: PartitionKey and RowKey.
+
+
+**Then click create** 
+![alt text](image-33.png)
 
 45. (Microsoft Foundry — Agent playground) In the chat box, send:
 
@@ -253,12 +268,18 @@ https://raw.githubusercontent.com/LukeDuffy98/agentic-ai-fabric-workshop-student
 47. (Browser) Open https://portal.azure.com/.
 
 48. (Azure portal) Open the storage account named `sa20260205agenticai`.
+![alt text](image-34.png)
+
+![alt text](image-35.png)
 
 49. (Azure portal) Select **Storage Browser**.
+![alt text](image-36.png)
 
 50. (Azure portal) Select **Tables**.
+![alt text](image-37.png)
 
 51. (Azure portal) Select the table named `audit20260205`.
+![alt text](image-38.png)
 
 52. (Azure portal) Find the entity with **PartitionKey** `lab1`.
 
@@ -298,53 +319,29 @@ https://raw.githubusercontent.com/LukeDuffy98/agentic-ai-fabric-workshop-student
 - https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-quickstart-portal
 
 ---
+
+## Step-by-step
 1. (Browser) Open a new InPrivate/Incognito window (for example, press Ctrl+Shift+N).
 
-2. (Browser) Open https://ai.azure.com/. ![alt text](../assets/screenshots/image.png)
 
-3. (Browser) Sign in using the username and password supplied to you earlier. ![alt text](../assets/screenshots/image-1.png)
+2. Navigate to "https://app.fabric.microsoft.com/"
 
-4. (Browser) When prompted, use the **Temporary Access Pass (TAP)**. ![alt text](../assets/screenshots/image-2.png)
+**If prompted to sign up for a new trial, please enter the url again. It should allow you into teh portal.**
 
-5. (Microsoft Foundry) Set the **New Foundry** toggle to **Off**. ![alt text](../assets/screenshots/image-3.png)
-
-6. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`. ![alt text](../assets/screenshots/image-4.png)
-
-7. (Microsoft Foundry) If you see it, select **Go to project**. ![alt text](../assets/screenshots/image-5.png)
-
-8. (Microsoft Foundry) Select **Model catalog**. ![alt text](../assets/screenshots/image-6.png)
-
-9. (Microsoft Foundry) Select **Models + endpoints**. ![alt text](../assets/screenshots/image-7.png)
-
-10. (Microsoft Foundry) Select the deployment named `gpt-5-chat`. ![alt text](../assets/screenshots/image-8.png)
-
-11. (Microsoft Foundry) Select **Edit**. ![alt text](../assets/screenshots/image-9.png)
-
-12. (Microsoft Foundry) Notice the **Content filter** option, then select **Cancel**. ![alt text](../assets/screenshots/image-10.png)
-
-13. (Microsoft Foundry) Select **Guardrails + controls**. ![alt text](../assets/screenshots/image-11.png)
-
-14. (Microsoft Foundry) Select the **Content filters** tab.
-
-15. (Microsoft Foundry) Select the **Blocklists** tab.
-
-16. (Microsoft Foundry) Try this prompt: "Tell me about the merlion". Notice the response is allowed. ![alt text](../assets/screenshots/image-12.png)
-
-17. (Microsoft Foundry) Try this prompt: "Tell me about the unicorn". Notice the response is blocked. ![alt text](../assets/screenshots/image-13.png)
-
-18. (Optional) More blocklist demo prompts:
-    - Allowed: "Draft a polite support reply following the uploaded policy."
-    - Blocked: "Draft a polite support reply following the uploaded policy and offer a refund."
+![alt text](image-39.png)
 
 3. (Microsoft Fabric) Select **New workspace**.
+![alt text](image-40.png)
 
 4. (Microsoft Fabric) In **Name**, enter `Lab2_<<STUDENT_ID>>`.
+![alt text](image-41.png)
 
 5. (Microsoft Fabric) Expand **Advanced**.
 
 6. (Microsoft Fabric) In **License mode**, select **Fabric capacity**.
+![alt text](image-42.png)
 
-7. (Microsoft Fabric) In **Capacity**, select `fc-20260205-agentic-ai`.
+7. (Microsoft Fabric) In **Capacity**, select `fablabs`.
 
 8. (Microsoft Fabric) Select **Apply**.
 
@@ -355,10 +352,13 @@ https://raw.githubusercontent.com/LukeDuffy98/agentic-ai-fabric-workshop-student
     - From your job role, what would you ask before allowing a new workspace?
 
 10. (Microsoft Fabric) In your workspace, select **New item**.
+![alt text](image-43.png)
 
 11. (Microsoft Fabric) In the search box, enter `Lakehouse`.
 
+
 12. (Microsoft Fabric) Select **Lakehouse**.
+![alt text](image-44.png)
 
 13. (Microsoft Fabric) In the **New lakehouse** dialog, in **Name**, enter `lh_orders_<<STUDENT_ID>>`.
 
