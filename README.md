@@ -10,7 +10,7 @@
 ## Prereqs
 - You have a web browser and you can sign in with your lab account.
 - Your facilitator provides these exact values:
-  - **Foundry project name:** `2026-02-05-agentic-ai-us`
+  - **Foundry project name:** `2026-02-05-agentic-ai`
   - **Model deployment name:** `gpt-5-chat`
   - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
   - **Fabric data agent endpoint URL:** `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` (format: `https://<environment>.fabric.microsoft.com/groups/<workspace_id>/aiskills/<artifact-id>`)

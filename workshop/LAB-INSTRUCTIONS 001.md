@@ -22,7 +22,7 @@ By the end of this lab, you can:
 ## Prereqs
 - You have a web browser and you can sign in with your lab account.
 - Your facilitator provides these exact values:
-    - **Foundry project name:** `2026-02-05-agentic-ai-us`
+    - **Foundry project name:** `2026-02-05-agentic-ai`
     - **Model deployment name:** `gpt-5-chat`
     - **Your student ID (no names/emails):** `<<STUDENT_ID>>` (example format: `student-07`)
     - **Fabric data agent endpoint URL:** `<<FABRIC_DATA_AGENT_ENDPOINT_URL>>` (format: `https://<environment>.fabric.microsoft.com/groups/<workspace_id>/aiskills/<artifact-id>`)
@@ -42,7 +42,7 @@ By the end of this lab, you can:
 
 - Required permissions (least privilege):
   - On the Foundry project: **Azure AI Developer**.
-    - On the resource group `2026-02-05-agentic-ai-us-fabric-rg`: **Reader**.
+    - On the resource group `2026-02-05-agentic-ai-fabric-rg`: **Reader**.
   - On the project’s storage account (for file uploads): **Storage Blob Data Contributor**.
   - On the storage account (for validation in the Azure portal): **Storage Table Data Reader**.
 
@@ -93,7 +93,7 @@ By the end of this lab, you can:
     <img src="../assets/screenshots/image-3.png" alt="Azure AI Foundry: set New Foundry toggle Off" width="900" />
     </details>
 
-6. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai-us`.
+6. (Microsoft Foundry) Select your project named `2026-02-05-agentic-ai`.
 
     <details>
     <summary>Screenshot: Azure AI Foundry: select project</summary>
@@ -362,7 +362,7 @@ By the end of this lab, you can:
     <img src="../assets/screenshots/image-30.png" alt="Actions: Azure Logic Apps" width="900" />
     </details>
 
-    Note: If you do not see the workflow `la-20260205-agentic-ai` under **Your actions**, stop and ask your facilitator to confirm (1) you have **Reader** access to the resource group `2026-02-05-agentic-ai-us-fabric-rg`, and (2) the workflow is a **Consumption** logic app in the same subscription and resource group as this project, starts with **When an HTTP request is received** (with a **Description**), and ends with a **Response** action.
+    Note: If you do not see the workflow `la-20260205-agentic-ai` under **Your actions**, stop and ask your facilitator to confirm (1) you have **Reader** access to the resource group `2026-02-05-agentic-ai-fabric-rg`, and (2) the workflow is a **Consumption** logic app in the same subscription and resource group as this project, starts with **When an HTTP request is received** (with a **Description**), and ends with a **Response** action.
 
 48. (Microsoft Foundry — Agent playground) Select the workflow named `la-20260205-agentic-ai`.
 
